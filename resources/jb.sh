@@ -31,21 +31,14 @@ echo " [OK]"
 echo -n "Creating temporary directory..."
 executecmd mkdir /tmp
 echo " [OK]"
-echo "Copying semitether & depencies..."
-$sbd/sshpass -p alpine scp -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -P 2022 $sbd/stether.tar root@localhost:/tmp/
-echo " [OK]"
-echo -n "Extracting semitether & depencies..."
-executecmd "cd /tmp && tar xf stether.tar && rm stether.tar"
-echo " [OK]"
-echo -n "Moving files to their places..."
-executecmd "mv /tmp/dirhelper /mnt1/usr/libexec && mv /tmp/mount /mnt1/sbin && mv /tmp/mount_hfs /mnt1/sbin"
-echo " [OK]"
-echo -n "Creating /etc/rc.d..."
-executecmd mkdir /mnt1/etc/rc.d
+echo "Applying semitether..."
+$sbd/sshpass -p alpine scp -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -P 2022 $sbd/dirhelper root@localhost:/mnt1/usr/libexec
 echo " [OK]"
 echo -n "Setting nvram variables and rebooting..."
 executecmd nvram auto-boot=true
 executecmd reboot_bak
 echo " [OK]"
 php $cud/sshkiller.php
-echo "Done"
+echo "Done, please put your device into DFU mode again, we'll now boot it for the first time, press enter to continue..."
+read NULL
+$cud/boot.sh

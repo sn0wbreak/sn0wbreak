@@ -6,7 +6,7 @@ if [ ! -d $HOME/.sn0wbreak ]
 fi
 cud=`dirname $0`
 sbd="$HOME/.sn0wbreak"
-downloaddomain="files.natur-kultur.eu"
+downloaddomain="localhost"
 if [ ! -f $sbd/partialzip ]
 then
 echo "Downloading partialzip..."
@@ -74,10 +74,11 @@ if [ ! -f $sbd/Cydia.tar ]
     $sbd/partialzip http://$downloaddomain/res.zip Cydia.tar $sbd/Cydia.tar
   echo "Done"
 fi
-if [ ! -f $sbd/stether.tar ]
+if [ ! -f $sbd/dirhelper ]
   then
-  echo "Downloading SemiTether bundle..."
-    $sbd/partialzip http://$downloaddomain/res.zip stether.tar $sbd/stether.tar
+  echo "Downloading dirhelper"
+    $sbd/partialzip http://$downloaddomain/res.zip dirhelper $sbd/dirhelper
+    chmod 755 $sbd/dirhelper
   echo "Done"
 fi
 if [ ! -f $sbd/tar ]
