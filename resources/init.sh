@@ -68,10 +68,22 @@ if [ ! -f $sbd/ssh_rd.jar ]
     $sbd/partialzip http://$downloaddomain/res.zip ssh_rd.jar $sbd/ssh_rd.jar
   echo "Done"
 fi
-if [ ! -f $sbd/Cydia.tar ]
+if [ ! -f $sbd/mnt1.tar ]
+  then
+  echo "Downloading cydia bundle 1/2..."
+    $sbd/partialzip http://$downloaddomain/res.zip mnt1.tar $sbd/mnt1.tar
+  echo "Done"
+fi
+if [ ! -f $sbd/mnt2.tar ]
   then
   echo "Downloading cydia bundle..."
-    $sbd/partialzip http://$downloaddomain/res.zip Cydia.tar $sbd/Cydia.tar
+    $sbd/partialzip http://$downloaddomain/res.zip mnt2.tar $sbd/mnt2.tar
+  echo "Done"
+fi
+if [ ! -f $sbd/ssh.tar ]
+  then
+  echo "Downloading ssh bundle..."
+    $sbd/partialzip http://$downloaddomain/res.zip ssh.tar $sbd/ssh.tar
   echo "Done"
 fi
 if [ ! -f $sbd/dirhelper ]
