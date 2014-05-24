@@ -1,11 +1,11 @@
 #!/bin/bash
 cud=`dirname $0`
 sbd="$HOME/.sn0wbreak"
-echo "Please make sure your device is connected and in DFU mode, if you haven't done it yet, please identify your device first, before entering DFU mode. Press enter to continue..."
+echo "Connect your device in DFU Mode but if you haven't done it yet, please identify your device first, before entering DFU Mode. Press enter to continue..."
 read NULL
 echo "Starting ssh_rd..."
 java -jar $sbd/ssh_rd.jar > /tmp/rd.log 2>> /tmp/rd.log &
-echo "I'll wait 30 seconds now for ssh_rd..."
+echo "Waiting 30 seconds now for ssh_rd..."
 sleep 30
 function executecmd()
 {
@@ -52,7 +52,7 @@ executecmd nvram auto-boot=true
 executecmd reboot_bak
 echo " [OK]"
 php $cud/sshkiller.php
-echo "Done, please put your device into DFU mode again, we'll now boot it for the first time, press enter to continue..."
+echo "Done, please put your device into DFU mode again, so we can boot, press Enter to continue..."
 echo > $sbd/jbd
 read NULL
 $cud/boot.sh
