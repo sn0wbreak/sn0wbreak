@@ -2,7 +2,7 @@
 if [ ! -d $HOME/.sn0wbreak ]
   then
   mkdir $HOME/.sn0wbreak
-  echo "created working directory"
+  echo "Created working directory"
 fi
 cud=`dirname $0`
 sbd="$HOME/.sn0wbreak"
