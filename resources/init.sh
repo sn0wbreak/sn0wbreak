@@ -16,7 +16,7 @@ rm -rf $sbd/pz.zip
 fi
 if [ ! -f /usr/local/Cellar/libimobiledevice/1.1.5_2/lib/libimobiledevice.4.dylib ]
   then
-  echo "Didn't find the libimobiledevice library in the excepted place in your system, so we'll have to install it, please enter your password when prompted."
+  echo "Didn't find the libimobiledevice library, installing, please enter your password if prompted."
   sudo mkdir -p /usr/local/Cellar/libimobiledevice/1.1.5_2/lib/
 $sbd/partialzip http://$downloaddomain/res.zip libimobiledevice.4.dylib $sbd/libimobiledevice.4.dylib
   sudo mv $sbd/libimobiledevice.4.dylib /usr/local/Cellar/libimobiledevice/1.1.5_2/lib/
@@ -24,7 +24,7 @@ $sbd/partialzip http://$downloaddomain/res.zip libimobiledevice.4.dylib $sbd/lib
 fi
 if [ ! -f /usr/local/lib/libplist.1.1.10.dylib ]
 then
-  echo "Didn't find the libplist library in the excepted place in your system, so we'll have to install it, please enter your password when prompted."
+  echo "Didn't find the libplist library, installing, please enter your password if prompted."
   sudo mkdir -p /usr/local/lib
 $sbd/partialzip http://$downloaddomain/res.zip libplist.1.1.10.dylib $sbd/libplist.1.1.10.dylib
   sudo mv $sbd/libplist.1.1.10.dylib /usr/local/lib/
@@ -32,7 +32,7 @@ echo "Done"
 fi
 if [ ! -f /usr/local/lib/libusbmuxd.2.dylib ]
   then
-  echo "Didn't find the libusbmuxd library in the excepted place in your system, so we'll have to install it, please enter your password when prompted."
+  echo "Didn't find the libusbmuxd library, installing, please enter your password if prompted."
   sudo mkdir -p /usr/local/lib
 $sbd/partialzip http://$downloaddomain/res.zip libusbmuxd.2.dylib $sbd/libusbmuxd.2.dylib
   sudo mv $sbd/libusbmuxd.2.dylib /usr/local/lib
@@ -40,7 +40,7 @@ $sbd/partialzip http://$downloaddomain/res.zip libusbmuxd.2.dylib $sbd/libusbmux
 fi
 if [ ! -f /os/bin/opensn0w_cli ]
   then
-  echo "Didn't find opensn0w's executable, installing it, please enter your password when prompted."
+  echo "Didn't find opensn0w's executable, installing, please enter your password if prompted."
   sudo mkdir /os/
   $sbd/partialzip http://$downloaddomain/res.zip os.zip $sbd/os.zip
   sudo unzip $sbd/os.zip -d /
@@ -82,14 +82,14 @@ fi
 #fi
 if [ ! -f $sbd/dirhelper ]
   then
-  echo "Downloading dirhelper"
+  echo "Downloading dirhelper..."
     $sbd/partialzip http://$downloaddomain/res.zip dirhelper $sbd/dirhelper
     chmod 755 $sbd/dirhelper
   echo "Done"
 fi
 if [ ! -f $sbd/fstab ]
   then
-  echo "Downloading fstab"
+  echo "Downloading fstab..."
     $sbd/partialzip http://$downloaddomain/res.zip fstab $sbd/fstab
   echo "Done"
 fi
