@@ -1,7 +1,7 @@
 sn0wbreak
 =========
 
-Better then geeksn0w, and for mac.....
+Geeksn0w, but better.....and for Mac
 
 How the GUI looks: http://berlin.blogg.natur-kultur.eu/data/gui.png
 
