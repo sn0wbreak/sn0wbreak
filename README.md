@@ -35,10 +35,12 @@ INSTRUCTIONS:
 
 - Backup your device using iTunes (or iCloud) before using sn0wbreak.
 - Please disable the lock passcode of your iOS device before using evasi0n. It can cause issues.
-- Open sn0wbreak, plug in your device, and click "Identify device and fix dependencies". When that is done, click "Jailbreak". Stay with your computer and watch for any steps you may be asked to perform.
 - Avoid all iTunes related tasks until sn0wbreak is complete.
 - If the process gets stuck somewhere, it's safe to restart the program, reboot the device (if necessary by holding down Power and Home until it shuts down), and re-run the process.
 - Some Cydia tweaks are not yet compatible with iOS 7.1.x. The situation will improve as developers will update their software.
+
+- Open sn0wbreak, plug in your device, and click "Identify device and fix dependencies". When that is done, click "Jailbreak". Stay with your computer and watch for any steps you may be asked to perform.
+- Once the jailbreak is done, sn0wbreak will automatically proceed to a tethered boot. From now on, just click "Boot" to boot your device.
 
 FAQ:
 
