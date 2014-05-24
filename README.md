@@ -16,15 +16,15 @@ SUPPORTED DEVICES
 
 SUPPORTED FIRMWARES:
 
-- iOS 7.0
-- iOS 7.0.2
-- iOS 7.0.3
-- iOS 7.0.4
-- iOS 7.0.6
-- iOS 7.1 beta 1
-- iOS 7.1 beta 2
-- iOS 7.1
-- iOS 7.1.1
+- iOS 7.0 (11A465)
+- iOS 7.0.2 (11A501)
+- iOS 7.0.3 (11B511)
+- iOS 7.0.4 (11B554a)
+- iOS 7.0.6 (11B651)
+- iOS 7.1 beta 1 (11D5099e)
+- iOS 7.1 beta 2 (11D5115d)
+- iOS 7.1 (11D169)
+- iOS 7.1.1 (11D201)
 
 CHANGES:
 
