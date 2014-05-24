@@ -2,7 +2,7 @@ sn0wbreak v1.0.0
 
 DESCRIPTION:
 
-- sn0wbreak - a semi-tethered jailbreak for the iPhone 4
+- sn0wbreak - a semi-tethered jailbreak for the iPhone 4 on iOS 7
 
 SYSTEM REQUIREMENTS:
 
@@ -45,14 +45,18 @@ INSTRUCTIONS:
 FAQ:
 
 - If you have any questions regarding the jailbreak process or jailbreaking in general 
-- please go to the Jailbreak QA dedicated website: http://www.jailbreakqa.com
-- or try /r/jailbreak on Reddit: http://reddit.com/r/jailbreak
+please go to the Jailbreak QA dedicated website: http://www.jailbreakqa.com
+or try /r/jailbreak on Reddit: http://reddit.com/r/jailbreak
 
 CONTACT:
 
 - spydar007@gmail.com
 - daniel@natur-kultur.eu
 - IRC: #sn0wbreak on irc.freenode.net
+
+CREDITS:
+
+- sn0wbreak is a production of Daniel Troger and Spydar007
 
 THANKS TO:
 
