@@ -1,14 +1,14 @@
 #!/bin/bash
 function idd()
 {
-echo -n "Caching current device"
+echo -n "Caching current device..."
 rm -rf $ifn
 $HOME/.sn0wbreak/ideviceinfo -x > $ifn
 if [ $? == 255 ]
 then
 echo " [ERROR]"
 rm -rf $ifn
-echo "Something went wrong, please make sure your device is connected and please press 'Trust' if you get a dialog on your device. Press enter to try again"
+echo "Something went wrong - please make sure your device is connected to your computer and click 'Trust' if you get a popup on your device. Press Enter to try again"
 read NULL
 idd
 sleep 0
@@ -34,10 +34,10 @@ elif [ $1 == "identify" ]
 then
  idd
 else
-  echo "Usage: "
-  echo "$0 iOS - returns ios version of connected device"
+  echo "Usage:"
+  echo "$0 iOS - returns iOS version of connected device"
   echo "$0 device - returns connected device"
-  echo "$0 build - returns the buildid"
+  echo "$0 build - returns the build id"
   echo "$0 identify - caches an actual ideviceinfo for later use"
 fi
 

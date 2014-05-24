@@ -1,11 +1,11 @@
 #!/bin/bash
 cud=`dirname $0`
 sbd="$HOME/.sn0wbreak"
-echo "Connect your device in DFU Mode but if you haven't done it yet, please identify your device first, before entering DFU Mode. Press enter to continue..."
+echo "Please identify your device first and then enter DFU Mode. Press Enter to continue..."
 read NULL
 echo "Starting ssh_rd..."
 java -jar $sbd/ssh_rd.jar > /tmp/rd.log 2>> /tmp/rd.log &
-echo "Waiting 30 seconds now for ssh_rd..."
+echo "Waiting for ssh_rd..."
 sleep 30
 function executecmd()
 {
@@ -17,7 +17,7 @@ $sbd/sshpass -p alpine scp -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyCh
 }
 echo -n "Waiting for ssh_rd... "
 executecmd echo " [OK]"
-echo "Mounting fs..."
+echo "Mounting rootfs..."
 executecmd "while [ ! -d /mnt1/etc ]; do mount.sh; done"
 echo " [OK]"
 echo -n "Copying tar binary..."
@@ -26,7 +26,7 @@ echo " [OK]"
 echo -n "Copying cp binary..."
 transferfile $sbd/cp /bin
 echo " [OK]"
-echo -n "Copying basic cydia bundle from p0sixspwn..."
+echo -n "Copying basic cydia bundle..."
 transferfile $sbd/Cydia.tar /mnt1
 echo " [OK]"
 #echo -n "Copying ssh..."
@@ -44,7 +44,7 @@ echo " [OK]"
 echo -n "Moving dpkg structure to user partition..."
 executecmd "mv /mnt1/var/* /mnt2"
 echo " [OK]"
-echo "Applying semitether..."
+echo "Applying Semi-Tether..."
 transferfile $sbd/dirhelper /mnt1/usr/libexec
 echo " [OK]"
 echo -n "Setting nvram variables and rebooting..."
@@ -52,7 +52,7 @@ executecmd nvram auto-boot=true
 executecmd reboot_bak
 echo " [OK]"
 php $cud/sshkiller.php
-echo "Done, please put your device into DFU mode again, so we can boot, press Enter to continue..."
+echo "Done, please put your device into DFU mode again and then press Enter to continue..."
 echo > $sbd/jbd
 read NULL
 $cud/boot.sh
