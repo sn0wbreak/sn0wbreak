@@ -1,10 +1,8 @@
-sn0wbreak
-=========
+sn0wbreak v1.0.0
 
 DESCRIPTION:
 
 - sn0wbreak - a semi-tethered jailbreak for the iPhone 4
-
 
 SYSTEM REQUIREMENTS:
 
@@ -48,6 +46,11 @@ FAQ:
 - please go to the Jailbreak QA dedicated website: http://www.jailbreakqa.com
 - or try /r/jailbreak on Reddit: http://reddit.com/r/jailbreak
 
+CONTACT:
+
+- spydar007@gmail.com
+- daniel@natur-kultur.eu
+- IRC: #sn0wbreak on irc.freenode.net
 
 THANKS TO:
 
