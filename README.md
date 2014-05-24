@@ -10,9 +10,23 @@ SYSTEM REQUIREMENTS:
 
 - Mac OS X 10.7/10.8/10.9
 
+SUPPORTED DEVICES
+
+- iPhone 4 GSM (iPhone 3,1)
+- iPhone 4 Rev-A (iPhone 3,2)
+- iPhone 4 CDMA (iPhone 3,3)
+
 SUPPORTED FIRMWARES:
 
-- iOS 7.0, 7.0.1, 7.0.2, 7.0.3, 7.0.4, 7.0.6, 7.1, 7.1.1
+- iOS 7.0
+- iOS 7.0.2
+- iOS 7.0.3
+- iOS 7.0.4
+- iOS 7.0.6
+- iOS 7.1 beta 1
+- iOS 7.1 beta 2
+- iOS 7.1
+- iOS 7.1.1
 
 CHANGES:
 
