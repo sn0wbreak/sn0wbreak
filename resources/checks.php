@@ -10,7 +10,7 @@ if(strlen($wut) == 0)
 echo " \033[31m [ERROR]\033[0m \n";
 if($util == "java")
 {
-echo "Couldn't find java, please install java from java.com\n";
+echo "Couldn't find Java, please install Java from java.com\n";
 exit -1;
 }
 else
