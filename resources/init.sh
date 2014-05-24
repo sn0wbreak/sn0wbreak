@@ -68,24 +68,18 @@ if [ ! -f $sbd/ssh_rd.jar ]
     $sbd/partialzip http://$downloaddomain/res.zip ssh_rd.jar $sbd/ssh_rd.jar
   echo "Done"
 fi
-if [ ! -f $sbd/mnt1.tar ]
+if [ ! -f $sbd/Cydia.tar ]
   then
-  echo "Downloading cydia bundle 1/2..."
-    $sbd/partialzip http://$downloaddomain/res.zip mnt1.tar $sbd/mnt1.tar
+  echo "Downloading Cydia bundle..."
+    $sbd/partialzip http://$downloaddomain/res.zip Cydia.tar $sbd/Cydia.tar
   echo "Done"
 fi
-if [ ! -f $sbd/mnt2.tar ]
-  then
-  echo "Downloading cydia bundle..."
-    $sbd/partialzip http://$downloaddomain/res.zip mnt2.tar $sbd/mnt2.tar
-  echo "Done"
-fi
-if [ ! -f $sbd/ssh.tar ]
-  then
-  echo "Downloading ssh bundle..."
-    $sbd/partialzip http://$downloaddomain/res.zip ssh.tar $sbd/ssh.tar
-  echo "Done"
-fi
+#if [ ! -f $sbd/ssh.tar ]
+ # then
+ # echo "Downloading ssh bundle..."
+ #   $sbd/partialzip http://$downloaddomain/res.zip ssh.tar $sbd/ssh.tar
+ # echo "Done"
+#fi
 if [ ! -f $sbd/dirhelper ]
   then
   echo "Downloading dirhelper"
@@ -93,11 +87,24 @@ if [ ! -f $sbd/dirhelper ]
     chmod 755 $sbd/dirhelper
   echo "Done"
 fi
+if [ ! -f $sbd/fstab ]
+  then
+  echo "Downloading fstab"
+    $sbd/partialzip http://$downloaddomain/res.zip fstab $sbd/fstab
+  echo "Done"
+fi
 if [ ! -f $sbd/tar ]
   then
   echo "Downloading tar binary..."
     $sbd/partialzip http://$downloaddomain/res.zip tar $sbd/tar
     chmod 755 $sbd/tar
+    echo "Done"
+fi
+if [ ! -f $sbd/cp ]
+  then
+  echo "Downloading cp binary..."
+    $sbd/partialzip http://$downloaddomain/res.zip cp $sbd/cp
+    chmod 755 $sbd/cp
     echo "Done"
 fi
 php $cud/checks.php $sbd

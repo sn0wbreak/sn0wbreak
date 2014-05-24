@@ -1,8 +1,0 @@
-Status atm:
-the gui has a fully working init and boot option with automatic device detection & caching
-the jailbreak button is still missing in the gui
-the jailbreak script is DONE!
-So, howto: clone everything from github, open the app, press init and identify your device while having your unlocked device connected:
-Then open a terminal, and drag jb.sh from the resources directory into it and press enter, this will jailbreak your device, and boot it semitethered.
-Then if you want to boot tethered (with jb "enabled"), open the gui and click boot, you need to click boot everytime you want to boot your device tethered (but only do the jb script once), done!
-EDIT: my iphone is bootlooping atm so there's a bug somewhere, please wait until i've fixed it...
