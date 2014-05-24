@@ -8,7 +8,7 @@ if [ $? == 255 ]
 then
 echo " [ERROR]"
 rm -rf $ifn
-echo "Something went wrong, please make sure your device is connected and please press 'Trust' if you get a dialog on your phone, press enter to try again"
+echo "Something went wrong, please make sure your device is connected and please press 'Trust' if you get a dialog on your device. Press enter to try again"
 read NULL
 idd
 sleep 0
