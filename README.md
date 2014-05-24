@@ -1,5 +1,7 @@
 sn0wbreak v1.0.0
 
+==============
+
 DESCRIPTION:
 
 - sn0wbreak - a semi-tethered jailbreak for the iPhone 4
