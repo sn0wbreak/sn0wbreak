@@ -65,5 +65,6 @@ THANKS TO:
 - planetbeing for partialzip
 - winocm for opensn0w
 - jk9357 for help with scripting
+- Christian Troger for website hosting
 
 Copyright © Daniel Troger and Spydar007 2014
