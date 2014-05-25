@@ -6,7 +6,7 @@ DESCRIPTION:
 
 SYSTEM REQUIREMENTS:
 
-- Mac OS X 10.7/10.8/10.9
+- Mac OS X 10.7 or above
 
 SUPPORTED DEVICES
 
@@ -59,6 +59,7 @@ CREDITS:
 
 THANKS TO:
 
+- geohot for limera1n
 - iH8sn0w for the dirhelper
 - msftguy for ssh_rd
 - planetbeing for partialzip
