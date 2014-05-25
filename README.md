@@ -50,8 +50,7 @@ or try /r/jailbreak on Reddit: http://reddit.com/r/jailbreak
 
 CONTACT:
 
-- spydar007@gmail.com
-- daniel@natur-kultur.eu
+- support@sn0wbreak.com
 - IRC: #sn0wbreak on irc.freenode.net
 
 CREDITS:
