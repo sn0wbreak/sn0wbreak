@@ -6,7 +6,7 @@ if [ ! -d $HOME/.sn0wbreak ]
 fi
 cud=`dirname $0`
 sbd="$HOME/.sn0wbreak"
-downloaddomain="files.natur-kultur.eu"
+downloaddomain="sn0wbreak.com"
 if [ ! -f $sbd/partialzip ]
 then
 echo "Downloading partialzip..."
