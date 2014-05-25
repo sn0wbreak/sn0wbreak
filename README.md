@@ -34,7 +34,7 @@ CHANGES:
 INSTRUCTIONS:
 
 - Backup your device using iTunes (or iCloud) before using sn0wbreak.
-- Please disable the lock passcode of your iOS device before using evasi0n. It can cause issues.
+- Please disable the lock passcode of your iOS device before using sn0wbreak. It can cause issues.
 - Avoid all iTunes related tasks until sn0wbreak is complete.
 - If the process gets stuck somewhere, it's safe to restart the program, reboot the device (if necessary by holding down Power and Home until it shuts down), and re-run the process.
 - Some Cydia tweaks are not yet compatible with iOS 7.1.x. The situation will improve as developers will update their software.
