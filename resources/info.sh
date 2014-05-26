@@ -6,14 +6,14 @@ rm -rf $ifn
 $HOME/.sn0wbreak/ideviceinfo -x > $ifn
 if [ $? == 255 ]
 then
-echo " [ERROR]"
+echo "ERROR"
 rm -rf $ifn
 echo "Something went wrong - please make sure your device is connected to your computer and click 'Trust' if you get a popup on your device. Press Enter to try again"
 read NULL
 idd
 sleep 0
 else
-echo " [OK]"
+echo "Done"
 fi
 }
 ifn="$HOME/.sn0wbreak/ideviceinfo.plist"
