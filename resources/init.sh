@@ -1,8 +1,9 @@
 #!/bin/bash
 if [ ! -d $HOME/.sn0wbreak ]
   then
+  echo "Creating working directory..."
   mkdir $HOME/.sn0wbreak
-  echo "Created working directory"
+  echo "Done"
 fi
 cud=`dirname $0`
 sbd="$HOME/.sn0wbreak"
@@ -114,6 +115,6 @@ then
 $cud/info.sh identify
 echo > $sbd/ok
 fi
-echo "Please press enter"
+echo "Please press Enter to continue..."
 read NULL
 exit $ex
