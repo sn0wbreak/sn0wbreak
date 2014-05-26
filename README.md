@@ -1,4 +1,4 @@
-sn0wbreak v1.0.0 - sn0wbreak.com
+sn0wbreak v1.0.1 - sn0wbreak.com
 
 DESCRIPTION:
 
@@ -28,6 +28,9 @@ SUPPORTED FIRMWARES:
 
 CHANGES:
 
+- 1.0.1:
+  - Minor bug fixes
+  - 
 - 1.0.0:
   - Initial release
 
