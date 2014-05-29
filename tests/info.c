@@ -21,6 +21,9 @@ void INFO(char *infostr)
 
 int main(int argc, char *argv[])
 {
+  if(argv[1] != "--boot")
+  {
+
     INFO("Connecting to device...");
     device_t *device = device_create(NULL);
     if (device == NULL)
@@ -43,7 +46,6 @@ int main(int argc, char *argv[])
     char *product = NULL;
     char *build = NULL;
     char *version = NULL;
-
     if ((lockdown_get_string(lockdown, "ProductType", &product) != LOCKDOWN_E_SUCCESS)
             || (lockdown_get_string(lockdown, "BuildVersion", &build) != LOCKDOWN_E_SUCCESS)
             || (lockdown_get_string(lockdown, "ProductVersion", &version) != LOCKDOWN_E_SUCCESS)) {
@@ -53,6 +55,10 @@ int main(int argc, char *argv[])
                  return -1;
     }
              printf("%s_%s_%s\n", product, version, build);
-
+}
+else
+{
+  printf("BOOT!!!");
+}
              return 0;
 }
