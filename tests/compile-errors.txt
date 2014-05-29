@@ -1,0 +1,29 @@
+
+bash-3.2$ Mac-mini:tests admin$ clang info.c -I/abc/include -L/abc/lib -limobiledevice  -lplist -lusbmuxd -lssl -lcrypto -o info[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P
+[1minfo.c:49:14: [0m[0;1;35mwarning: [0m[1mimplicit declaration of function 'device_create' is invalid in C99 [-Wimplicit-function-declaration][0m
+    device = device_create(NULL);
+[0;1;32m             ^
+[0m[1minfo.c:49:12: [0m[0;1;35mwarning: [0m[1mincompatible integer to pointer conversion assigning to 'idevice_private *' (aka 'struct idevice_private *') from 'int' [-Wint-conversion][0m
+    device = device_create(NULL);
+[0;1;32m           ^ ~~~~~~~~~~~~~~~~~~~
+[0m[1minfo.c:52:24: [0m[0;1;35mwarning: [0m[1mimplicit declaration of function 'lockdown_open' is invalid in C99 [-Wimplicit-function-declaration][0m
+lockdown_t *lockdown = lockdown_open(device);
+[0;1;32m                       ^
+[0m[1minfo.c:52:13: [0m[0;1;35mwarning: [0m[1mincompatible integer to pointer conversion initializing 'lockdown_t *' (aka 'struct lockdown_t *') with an expression of type 'int' [-Wint-conversion][0m
+lockdown_t *lockdown = lockdown_open(device);
+[0;1;32m            ^          ~~~~~~~~~~~~~~~~~~~~~
+[0m[1minfo.c:57:36: [0m[0;1;35mwarning: [0m[1mincompatible pointer types passing 'lockdown_t *' (aka 'struct lockdown_t *') to parameter of type 'lockdownd_client_t'
+      (aka 'struct lockdownd_client_private *') [-Wincompatible-pointer-types][0m
+             lockdownd_client_free(lockdown);
+[0;1;32m                                   ^~~~~~~~
+[0m[1m/abc/include/libimobiledevice/lockdown.h:129:60: [0m[0;1;30mnote: [0mpassing argument to parameter 'client' here[0m
+lockdownd_error_t lockdownd_client_free(lockdownd_client_t client);
+[0;1;32m                                                           ^
+[0m5 warnings generated.
+Undefined symbols for architecture x86_64:
+  "_device_create", referenced from:
+      _main in info-ZxWp2s.o
+  "_lockdown_open", referenced from:
+      _main in info-ZxWp2s.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
