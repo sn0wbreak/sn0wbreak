@@ -26,6 +26,38 @@
 
 #include "common.h"
 
+typedef struct _compatibility {
+    char *product;
+    char *build;
+} compatibility_t;
+
+compatibility_t compatible_devices[] = {
+  {"n90ap", "11A465"},
+  {"n90bap","11A465"},
+  {"n92ap", "11A465"},
+  {"90ap", "11A465"},
+  {"90bap", "11A465"},
+  {"n92ap", "11A465"},
+  {"n90ap", "11B511"},
+  {"n90bap", "11B511"},
+  {"n92ap", "11B511"},
+  {"n90ap", "1B554a"},
+  {"n90bap", "1B554a"},
+  {"n92ap", "1B554a"},
+  {"n90ap", "11B651"},
+  {"n90bap","11B651"},
+  {"n92ap","11B651"},
+  {"n90ap","11D169"},
+  {"n90bap","11D169"},
+  {"n92ap","11D169"},
+  {"n90ap","11D201"},
+  {"n90bap","11D201"},
+  {"n92ap","11D201"},
+  {NULL, NULL};
+  
+  //need to finsih this
+}
+
 int jailbreak(const char *uuid)
 {
     device_t *device = NULL;
