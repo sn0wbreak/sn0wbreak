@@ -29,7 +29,7 @@ lockdown_t *lockdown_open(device_t * device)
 {
     lockdownd_client_t lockdownd = NULL;
     if (lockdownd_client_new_with_handshake(device->client, &lockdownd,
-                                            "unthreadedjb") !=
+                                            "pris0nbarake") !=
         LOCKDOWN_E_SUCCESS) {
         ERROR("Unable to pair with lockdownd\n");
     }
