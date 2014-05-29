@@ -3,12 +3,6 @@
 Thanks to PythEch for correcting some typos
 */
 
-#include <libimobiledevice/libimobiledevice.h>
-#include <libimobiledevice/afc.h>
-
-#include "device.h"
-#include "lockdown.h"
-
 #include "common.h"
 
 #include <stdio.h>
