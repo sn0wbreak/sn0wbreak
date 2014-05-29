@@ -13,17 +13,24 @@ Thanks to PythEch for correcting some typos
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void INFO(char *infostr)
 {
+  if(strcmp(argv[2], "-q") == 0)
+  {
     printf("[*] %s\n", infostr);
+  }
 }
 
 int main(int argc, char *argv[])
 {
-  if(argv[1] != "--boot")
+  if(strcmp(argv[1], "--boot") == 0)
   {
-
+    printf("BOOT!!!");
+  }
+  else
+  {
     INFO("Connecting to device...");
     device_t *device = device_create(NULL);
     if (device == NULL)
@@ -43,6 +50,8 @@ int main(int argc, char *argv[])
     }
     INFO("Lockdown initialization is sucessful.");
 
+    if(strcmp(argv[1], "--cache") == 0)
+    {
     char *product = NULL;
     char *build = NULL;
     char *version = NULL;
@@ -55,10 +64,20 @@ int main(int argc, char *argv[])
                  return -1;
     }
              printf("%s_%s_%s\n", product, version, build);
+           }
+           else
+           {
+             char *value = NULL;
+             if (lockdown_get_string(lockdown, argv[1], &value) != LOCKDOWN_E_SUCCESS)
+             {
+               ERROR("Can't get info about your iDevice, please try again!\n");
+               lockdown_free(lockdown);
+               device_free(device);
+               return -1;
+             }
+             printf("%s",value);
+           }
 }
-else
-{
-  printf("BOOT!!!");
-}
+
              return 0;
 }
