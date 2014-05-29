@@ -17,13 +17,8 @@ Thanks to PythEch for correcting some typos
 
 int mode = 0;
 
-void INFO(char *infostr)
-{
-    if(mode != 3) // ! else
-    {
-        printf("[*] %s\n", infostr);
-    }
-}
+#define INFO(x...) \
+    if (mode != 3) { printf("[*] "), printf(x); }
 
 int main(int argc, char *argv[])
 {
@@ -44,23 +39,23 @@ int main(int argc, char *argv[])
 
     if (mode != 1) // ! --boot
     {
-        INFO("Connecting to device...");
+        INFO("Connecting to device...\n");
         device_t *device = device_create(NULL);
         if (device == NULL)
         {
-            ERROR("Cannot connect to device! Make sure it is plugged in.");
+            ERROR("Cannot connect to device! Make sure it is plugged in.\n");
             return -1;
         }
-        printf("[*] Successfully connected to the iDevice. UDID: %s\n", device->uuid);
+        INFO("Successfully connected to the iDevice. UDID: %s\n", device->uuid);
 
-        INFO("Starting lockdown...");
+        INFO("Starting lockdown...\n");
         lockdown_t *lockdown = lockdown_open(device);
         if (lockdown == NULL)
         {
-            ERROR("Could not start lockdown!");
+            ERROR("Could not start lockdown!\n");
             return -1;
         }
-        INFO("Lockdown initialization is sucessful.");
+        INFO("Lockdown initialization is sucessful.\n");
 
         if (mode == 2) // --cache
         {
@@ -78,7 +73,7 @@ int main(int argc, char *argv[])
             }
             printf("%s_%s_%s\n", product, version, build);
         }
-        else if (mode == 3) // else
+        else // else
         {
             char *value = NULL;
             if (lockdown_get_string(lockdown, argv[1], &value) != LOCKDOWN_E_SUCCESS)
@@ -91,13 +86,9 @@ int main(int argc, char *argv[])
             printf("%s\n", value);
         }
     }
-    else if (mode == 1)
-    {
-        printf("BOOT!");
-    }
     else
     {
-        return -1;
+        printf("BOOT!\n");
     }
 
     return 0;
