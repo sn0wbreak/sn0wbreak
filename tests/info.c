@@ -5,7 +5,6 @@
 #include <libimobiledevice/lockdown.h>
 #include <stdio.h>
 #include <stdlib.h>
-
 typedef struct lockdown_t {
     idevice_t *device;
     lockdownd_client_t client;
@@ -16,7 +15,31 @@ struct idevice_private {
 	void *conn_data;
 };
 
+int lockdown_get_string(lockdown_t * lockdown, const char *key, char **value)
+{
+    if (!lockdown || !lockdown->client) {
+        return -1;
+    }
 
+    char *str = NULL;
+    plist_t pl = NULL;
+    lockdownd_error_t err =
+        lockdownd_get_value(lockdown->client, NULL, key, &pl);
+    if (err == LOCKDOWN_E_SUCCESS) {
+        if (pl != NULL && plist_get_node_type(pl) == PLIST_STRING) {
+            plist_get_string_val(pl, &str);
+            plist_free(pl);
+            if (str != NULL) {
+                *value = str;
+                return 0;
+            }
+        }
+    }
+    if (pl) {
+        plist_free(pl);
+    }
+    return -1;
+}
 int main(int argc, char *argv[])
 {
     idevice_private *device = NULL;
