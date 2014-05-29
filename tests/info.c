@@ -10,27 +10,35 @@ Thanks to PythEch for correcting some typos
 #include "lockdown.h"
 
 #include "common.h"
-
+#include "bs.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 void INFO(char *infostr)
 {
-  if(strcmp(argv[2], "-q") == 0)
-  {
-    printf("[*] %s\n", infostr);
-  }
+    if(mode != 3)
+    {
+      printf("[*] %s\n", infostr);
+    }
 }
 
 int main(int argc, char *argv[])
 {
   if(strcmp(argv[1], "--boot") == 0)
   {
-    printf("BOOT!!!");
+    mode = 1;
+  }
+  else if(strcmp(argv[1], "--cache") == 0)
+  {
+    mode = 2;
   }
   else
   {
+    mode = 3;
+  }
+if(mode != 1)
+{
     INFO("Connecting to device...");
     device_t *device = device_create(NULL);
     if (device == NULL)
@@ -50,7 +58,7 @@ int main(int argc, char *argv[])
     }
     INFO("Lockdown initialization is sucessful.");
 
-    if(strcmp(argv[1], "--cache") == 0)
+    if(mode == 2)
     {
     char *product = NULL;
     char *build = NULL;
@@ -64,8 +72,9 @@ int main(int argc, char *argv[])
                  return -1;
     }
              printf("%s_%s_%s\n", product, version, build);
+             return 0;
            }
-           else
+           if(mode == 3)
            {
              char *value = NULL;
              if (lockdown_get_string(lockdown, argv[1], &value) != LOCKDOWN_E_SUCCESS)
@@ -76,8 +85,15 @@ int main(int argc, char *argv[])
                return -1;
              }
              printf("%s",value);
+             return 0;
            }
 }
-
-             return 0;
+else if(mode == 1)
+{
+  printf("BOOT!");
+}
+else
+{
+return -1;
+}
 }
