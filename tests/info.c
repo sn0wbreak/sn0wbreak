@@ -47,6 +47,19 @@ compatibility_t compatible_devices[] = {
   //need to finsih this
 }
 
+int verify_product(char *product, char *build)
+{
+    compatibility_t *curcompat = &compatible_devices[0];
+    while ((curcompat) && (curcompat->product != NULL)) {
+        if (!strcmp(curcompat->product, product) &&
+            !strcmp(curcompat->build, build))
+            return 0;
+        curcompat++;
+    }
+    return 1;
+} // thanks to winocm for the 'verify_product' function.
+
+
 void INFO(char *infostr)
 {
   if(strcmp(argv[2], "-q") == 0)
