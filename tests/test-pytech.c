@@ -1,6 +1,7 @@
 /* Code by sjeezypwn, this is a gift to the sn0wbreak developers
-*/
 
+Thanks to Pytech for correcting some typos
+*/
 #include <libimobiledevice/libimobiledevice.h>
 #include <libimobiledevice/lockdown.h>
 #include <libimobiledevice/mobilebackup2.h>
