@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
             }
             printf("%s_%s_%s\n", product, version, build);
         }
-        else // else
+        else
         {
             char *value = NULL;
             if (lockdown_get_string(lockdown, argv[1], &value) != LOCKDOWN_E_SUCCESS)
