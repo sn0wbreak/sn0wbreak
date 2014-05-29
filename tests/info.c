@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
     if ((lockdown_get_string(lockdown, "ProductType", &product) != LOCKDOWN_E_SUCCESS)
             || (lockdown_get_string(lockdown, "BuildVersion", &build) != LOCKDOWN_E_SUCCESS)
             || (lockdown_get_string(lockdown, "ProductVersion", &version) != LOCKDOWN_E_SUCCESS)) {
-                 printf("Can't get info about your iDevice, please try again!\n");
+                 ERROR("Can't get info about your iDevice, please try again!\n");
                  lockdown_free(lockdown);
                  device_free(device);
                  return -1;
