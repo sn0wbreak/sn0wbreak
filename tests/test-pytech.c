@@ -96,13 +96,13 @@ int main(int argc, char *argv[])
     if (InitLockdown() == -1) { return -1; }
     printf("[*] Lockdown initialization is sucessful.\n");
 
-    char product = NULL;
-    char build = NULL;
-    char version = NULL;
+    char *product = NULL;
+    char *build = NULL;
+    char *version = NULL;
 
-    lockdown_get_string(lockdown, "HardwareModel", product);
-    lockdown_get_string(lockdown, "BuildVersion", build);
-    lockdown_get_string(lockdown, "ProductVersion", version); 
+    lockdown_get_string(lockdown, "HardwareModel", &product);
+    lockdown_get_string(lockdown, "BuildVersion", &build);
+    lockdown_get_string(lockdown, "ProductVersion", &version); 
     printf("can't get info about your idevice, pls ! try again\n");
                  lockdownd_client_free(lockdown);
                  idevice_free(iDevice);
