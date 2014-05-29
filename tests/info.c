@@ -44,15 +44,15 @@ int main(int argc, char *argv[])
     char *build = NULL;
     char *version = NULL;
 
-    if ((lockdown_get_string(lockdown, "HardwareModel", &product) != LOCKDOWN_E_SUCCESS)
+    if ((lockdown_get_string(lockdown, "ProductType", &product) != LOCKDOWN_E_SUCCESS)
             || (lockdown_get_string(lockdown, "BuildVersion", &build) != LOCKDOWN_E_SUCCESS)
             || (lockdown_get_string(lockdown, "ProductVersion", &version) != LOCKDOWN_E_SUCCESS)) {
-                 printf("can't get info about your idevice, pls ! try again\n");
+                 printf("Can't get info about your iDevice, please try again!\n");
                  lockdown_free(lockdown);
                  device_free(device);
                  return -1;
     }
-             printf("build: %s\n product: %s\nios version:%s\n", build, product,version);
+             printf("%s_%s_%s\n", product, version, build);
 
              return 0;
 }
