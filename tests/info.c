@@ -27,6 +27,8 @@ void INFO(char *infostr)
 
 int main(int argc, char *argv[])
 {
+    if (argc != 2) { return -1; } //avoid crash
+
     if (strcmp(argv[1], "--boot") == 0)
     {
         mode = 1;
