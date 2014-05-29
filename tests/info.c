@@ -3,19 +3,8 @@
 
 #include <libimobiledevice/libimobiledevice.h>
 #include <libimobiledevice/lockdown.h>
-#include <libimobiledevice/mobile_image_mounter.h>
-#include <libimobiledevice/mobilebackup2.h>
-#include <libimobiledevice/notification_proxy.h>
-#include <libimobiledevice/afc.h>
-#include <libimobiledevice/sbservices.h>
-#include <libimobiledevice/file_relay.h>
-#include <libimobiledevice/diagnostics_relay.h>
-#include <string.h>
-#include <zlib.h>
-#include <stdlib.h>
 #include <stdio.h>
-#include <fcntl.h>
-#include <sys/mman.h>
+#include <stdlib.h>
 
 typedef struct lockdown_t {
     idevice_t *device;
