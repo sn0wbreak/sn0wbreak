@@ -1,3 +1,6 @@
+/* Code by sjeezypwn, this is a gift to the sn0wbreak developers
+*/
+
 #include <libimobiledevice/libimobiledevice.h>
 #include <libimobiledevice/lockdown.h>
 #include <libimobiledevice/mobile_image_mounter.h>
