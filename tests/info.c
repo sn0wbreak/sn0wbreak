@@ -17,7 +17,7 @@ And the rest of the sn0wbreak team
 bool q = false;
 
 #define INFO(x...) \
-  if (!q) { printf("[*] "), printf(x), printf("\n"); }
+  if (!q) { printf("[*] "), printf(x); }
 
 
 typedef struct _compatibility {
