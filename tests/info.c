@@ -109,8 +109,12 @@ int length = 0; //who the hell cares about it, but it seems like file_get_conten
 char *plistc = NULL;
 char *plist = file_get_contents(cache,&plistc,&length);
     INFO("I will boot your device with opensn0w now, with deviceinfos from my cache, please place your device into DFU mode....");
-//char *whatevar = strcat("echo ","ab");
-system("ls");
+char *first = "test";
+char *target = malloc(strlen(plistc) + strlen(first) + 1);
+strcpy(target, first);
+strcat(target, plistc); 
+printf("%s",target);
+free(target); 
     INFO("Done!\n");
 return 0;
 }
