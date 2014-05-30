@@ -87,17 +87,20 @@ if(strcmp(argv[2], "-q") == 0)
   if(strcmp(argv[1], "--boot") == 0)
   {
 char *cache = "home_dir/.opensn0w/device_cache";
+char *plist = fread(cache);
 
 if(!file_exists(cache))
 {
 printf("Please cache your device first....\n");
 return -1;
 }
-char *plist = fread(cache);
-printf("I will boot your device with opensn0w now, with deviceinfos from my cache, please place your device into DFU mode....");
-system("/os/bin/opensn0w_cli -p /os/bundles/%s.plist",plist);
-printf("Done!\n");
+else if{
+    printf("I will boot your device with opensn0w now, with deviceinfos from my cache, please place your device into DFU mode....");
+    system("/os/bin/opensn0w_cli -p /os/bundles/%s.plist",plist);
+    printf("Done!\n");
 return 0;
+}
+
   }
   else // Connects to device
   {
