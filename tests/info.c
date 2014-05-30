@@ -5,6 +5,11 @@ Thanks to PythEch for correcting some typos
 And the rest of the sn0wbreak team
 
 */
+#include <stdio.h>
+#include <sys/stat.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
 
 #include <libimobiledevice/libimobiledevice.h>
 #include <libimobiledevice/afc.h>
@@ -13,13 +18,8 @@ And the rest of the sn0wbreak team
 #include "lockdown.h"
 
 #include "common.h"
-#include "functions.c"
+#include "file_get_contents.c"
 
-#include <stdio.h>
-#include <sys/stat.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
 extern bool q = false;
 typedef struct _compatibility {
     char *product;
@@ -64,6 +64,14 @@ int verify_product(char *product, char *build)
 } // thanks to winocm for the 'verify_product' function.
 
 
+int file_exists(const char filename[]) {
+    struct stat stbuf;
+    if (stat(filename, &stbuf) == -1) {
+        return (0);
+    }
+    return (1);
+}
+
 void INFO(char *infostr)
 {
   if(!q)
@@ -97,10 +105,12 @@ return -1;
 }
 else
 {
-char *plist = file_get_contents(cache);
-    printf("I will boot your device with opensn0w now, with deviceinfos from my cache, please place your device into DFU mode....");
-    printf("/os/bin/opensn0w_cli -p /os/bundles/%s.plist\n",plist);
-    printf("Done!\n");
+int length = 0; //who the hell cares about it, but it seems like file_get_contents needs it
+char *plistc = NULL;
+char *plist = file_get_contents(cache,&plistc,&length);
+    INFO("I will boot your device with opensn0w now, with deviceinfos from my cache, please place your device into DFU mode....");
+printf("/os/bin/opensn0w_cli -p /os/bundles/%s.plist",plistc);
+    INFO("Done!\n");
 return 0;
 }
 
