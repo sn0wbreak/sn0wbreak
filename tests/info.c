@@ -96,20 +96,20 @@ if(strcmp(argv[2], "-q") == 0)
 }
   if(strcmp(argv[1], "--boot") == 0)
   {
-char *homedir = getenv("HOME");
-char *cache = strcat(homedir,"/.sn0wbreak/device_cache");
-if(!file_exists(cache))
+char *homedir = getenv("HOME"); // this section works perfectly
+char *cache = strcat(homedir,"/.sn0wbreak/device_cache"); // we get the path and are fine
+if(!file_exists(cache)) // this works too
 {
 printf("Please cache your device first....\n");
 return -1;
 }
 else
 {
-int length = 0; //who the hell cares about it, but it seems like file_get_contents needs it
-char *plistc = NULL;
-file_get_contents(cache,&plistc,&length);
+int length = 0; //so fgc writes the length of the files to here
+char *plistc = NULL; // and the contents here
+file_get_contents(cache,&plistc,&length); // se file_get_contents.h
     INFO("I will boot your device with opensn0w now, with deviceinfos from my cache, please place your device into DFU mode....");
-char *p1 = strcat("/os/bin/opensn0w_cli -p /os/bundles/", plistc);
+char *p1 = strcat("/os/bin/opensn0w_cli -p /os/bundles/", plistc); // and this concatenation bus errors
 printf("%s",p1);
     INFO("Done!\n");
 return 0;
