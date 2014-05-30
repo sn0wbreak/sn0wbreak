@@ -11,19 +11,18 @@ And the rest of the sn0wbreak team
 #include <string.h>
 #include <stdbool.h>
 
-#include <libimobiledevice/libimobiledevice.h>
-#include <libimobiledevice/afc.h>
-
-#include "device.h"
-#include "lockdown.h"
-
 #include "common.h"
-#include "file_get_contents.c"
+#include "file_get_contents.h"
 
-extern bool q = false;
+bool q = false;
+
+#define INFO(x...) \
+  if (!q) { printf("[*] "), printf(x); }
+
+
 typedef struct _compatibility {
-    char *product;
-    char *build;
+  char *product;
+  char *build;
 } compatibility_t;
 
 compatibility_t compatible_devices[] = {
@@ -53,126 +52,114 @@ compatibility_t compatible_devices[] = {
 
 int verify_product(char *product, char *build)
 {
-    compatibility_t *curcompat = &compatible_devices[0];
-    while ((curcompat) && (curcompat->product != NULL)) {
-        if (!strcmp(curcompat->product, product) &&
-            !strcmp(curcompat->build, build))
-            return 0;
-        curcompat++;
-    }
-    return 1;
+  compatibility_t *curcompat = &compatible_devices[0];
+  while ((curcompat) && (curcompat->product != NULL)) {
+    if (!strcmp(curcompat->product, product) &&
+      !strcmp(curcompat->build, build))
+      return 0;
+    curcompat++;
+  }
+  return 1;
 } // thanks to winocm for the 'verify_product' function.
 
 
 int file_exists(const char filename[]) {
-    struct stat stbuf;
-    if (stat(filename, &stbuf) == -1) {
-        return (0);
-    }
-    return (1);
-}
-
-void INFO(char *infostr)
-{
-  if(!q)
-  {
-    printf("[*] %s\n", infostr);
+  struct stat stbuf;
+  if (stat(filename, &stbuf) == -1) {
+    return (0);
   }
+  return (1);
 }
 
-int main(int argc, char *argv[])
+int main(int argc, char * argv[])
 {
- if(argv[1] == NULL)
-{
-printf("Usage: \n%s --boot boots your device\n%s --cache caches your current device for booting\n%s SomeInfo query's lockdown about SomeInfo and echo's it\n",argv[0],argv[0],argv[0]);
-return -1;
-}
-if(argv[2] != NULL)
-{
-if(strcmp(argv[2], "-q") == 0)
-{
-    q = true;
-}
-}
-  if(strcmp(argv[1], "--boot") == 0)
-  {
-char *homedir = getenv("HOME"); // this section works perfectly
-char *cache = strcat(homedir,"/.sn0wbreak/device_cache"); // we get the path and are fine
-if(!file_exists(cache)) // this works too
-{
-printf("Please cache your device first....\n");
-return -1;
-}
-else
-{
-int length = 0; //so fgc writes the length of the files to here
-char *plistc = NULL; // and the contents here
-file_get_contents(cache,&plistc,&length); // se file_get_contents.h
-    INFO("I will boot your device with opensn0w now, with deviceinfos from my cache, please place your device into DFU mode....");
-char *a = "/os/bin/opensn0w_cli -p /os/bundles/";
-char *b = malloc(length + strlen(a) + 1);
-strcat(b,a);
-strcat(b,plistc);
-printf("%s",b);
-    INFO("Done!\n");
-return 0;
-}
-
-  }
-  else // Connects to device
-  {
-    INFO("Connecting to device...");
-    device_t *device = device_create(NULL);
-    if (device == NULL) // Checks if the device is plugged in or not
+    if (argv[1] == NULL)
     {
-        ERROR("Cannot connect to device! Make sure it is plugged in.");
+        printf("Usage: \n%s --boot boots your device\n%s --cache caches your current device for booting\n%s SomeInfo query's lockdown about SomeInfo and echo's it\n", argv[0], argv[0], argv[0]);
         return -1;
     }
-    INFO("[*] Successfully connected to the iDevice.");// idk but we can't echo the udid (would be device->uuid)
-
-
-    INFO("Starting lockdown...");
-
-    lockdown_t *lockdown = lockdown_open(device);   // Startes the lockdown protocol
-    if (lockdown == NULL)
+    if (argv[2] != NULL)
     {
-        ERROR("Could not start lockdown!");
-        return -1;
+        if (strcmp(argv[2], "-q") == 0)
+        {
+            q = true;
+        }
     }
-    INFO("Lockdown initialization is sucessful.");
-
-    if(strcmp(argv[1], "--cache") == 0)
+    if (strcmp(argv[1], "--boot") == 0)
     {
-    char *product = NULL;
-    char *build = NULL;
-    char *version = NULL;
-    if ((lockdown_get_string(lockdown, "ProductType", &product) != LOCKDOWN_E_SUCCESS)
-            || (lockdown_get_string(lockdown, "BuildVersion", &build) != LOCKDOWN_E_SUCCESS)
-            || (lockdown_get_string(lockdown, "ProductVersion", &version) != LOCKDOWN_E_SUCCESS)) {
-                 ERROR("Can't get info about your iDevice, please try again!\n");
-                 lockdown_free(lockdown);
-                 device_free(device);
-                 return -1; // gets Product Type, Build Version and Product version using lockdown
+        char *homedir = getenv("HOME"); // this section works perfectly
+        char *cache = strcat(homedir, "/.sn0wbreak/device_cache"); // we get the path and are fine
+
+        if (!file_exists(cache)) // this works too
+        {
+            ERROR("Please cache your device first....\n");
+            return -1;
+        }
+        else
+        {
+            long unsigned int *length = 0; //so fgc writes the length of the files to here
+            char **plistc = NULL; // and the contents here
+            file_get_contents(cache, plistc, length); // se file_get_contents.h
+
+            INFO("I will boot your device with opensn0w now, with deviceinfos from my cache, please place your device into DFU mode....\n");
+            char *p1 = strcat("/os/bin/opensn0w_cli -p /os/bundles/", (char *)plistc); // and this concatenation bus errors
+            printf("%s", p1);
+            INFO("Done!\n");
+            return 0;
+        }
+    }
+    else // Connects to device
+    {
+        INFO("Connecting to device...\n");
+        device_t *device = device_create(NULL);
+        if (device == NULL) // Checks if the device is plugged in or not
+        {
+            ERROR("Cannot connect to device! Make sure it is plugged in.\n");
+            return -1;
+        }
+        INFO("[*] Successfully connected to the iDevice. UDID: %s\n", device->uuid);
+
+
+        INFO("Starting lockdown...\n");
+
+        lockdown_t *lockdown = lockdown_open(device); // Startes the lockdown protocol
+        if (lockdown == NULL)
+        {
+            ERROR("Could not start lockdown!\n");
+            return -1;
+        }
+        INFO("Lockdown initialization is sucessful.\n");
+
+        if (strcmp(argv[1], "--cache") == 0)
+        {
+            char *product = NULL;
+            char *build = NULL;
+            char *version = NULL;
+            if (lockdown_get_string(lockdown, "ProductType", &product) != LOCKDOWN_E_SUCCESS ||
+                lockdown_get_string(lockdown, "BuildVersion", &build) != LOCKDOWN_E_SUCCESS  ||
+                lockdown_get_string(lockdown, "ProductVersion", &version) != LOCKDOWN_E_SUCCESS)
+            {
+                ERROR("Can't get info about your iDevice, please try again!\n");
+                lockdown_free(lockdown);
+                device_free(device);
+                return -1; // gets Product Type, Build Version and Product version using lockdown
             }
-printf("%s_%s_%s\n", product, version, build);
+            printf("%s_%s_%s\n", product, version, build);
+        }
+        else
+        {
+            char * value = NULL;
+            if (lockdown_get_string(lockdown, argv[1], &value) != LOCKDOWN_E_SUCCESS)
+            {
+                ERROR("Can't get info about your iDevice, please try again!\n"); // Couldn't find a device
+                lockdown_free(lockdown);
+                device_free(device);
+                return -1;
+            }
+            printf("%s\n", value);
+        }
     }
 
-             
-           else
-           {
-             char *value = NULL;
-             if (lockdown_get_string(lockdown, argv[1], &value) != LOCKDOWN_E_SUCCESS)
-             {
-               ERROR("Can't get info about your iDevice, please try again!\n"); // Couldn't find a device
-               lockdown_free(lockdown);
-               device_free(device);
-               return -1;
-             }
-             printf("%s",value);
-           }
-}
 
-
-
-             return 0;
+    return 0;
 }
