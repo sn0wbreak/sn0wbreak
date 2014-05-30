@@ -74,21 +74,24 @@ void INFO(char *infostr)
 
 int main(int argc, char *argv[])
 {
-INFO("We're in main(), bro");
+ if(argv[1] == NULL)
+{
+printf("Usage: \n%s --boot boots your device\n%s --cache caches your current device for booting\n%s SomeInfo query's lockdown about SomeInfo and echo's it\n",argv[0],argv[0],argv[0]);
+return -1;
+}
+if(argv[2] != NULL)
+{
 if(strcmp(argv[2], "-q") == 0)
 {
     q = true;
-printf("I'm quieted\n");
 }
-INFO("Passed quiet bs");
+}
   if(strcmp(argv[1], "--boot") == 0)
   {
     printf("BOOT!!!");
-INFO("you said --boot,bro");
   }
   else // Connects to device
   {
-INFO("Not booting, bro");
     INFO("Connecting to device...");
     device_t *device = device_create(NULL);
     if (device == NULL) // Checks if the device is plugged in or not
@@ -96,7 +99,8 @@ INFO("Not booting, bro");
         ERROR("Cannot connect to device! Make sure it is plugged in.");
         return -1;
     }
-    printf("[*] Successfully connected to the iDevice. UDID: %s\n", device->uuid);
+    INFO("[*] Successfully connected to the iDevice.");// idk but we can't echo the udid (would be device->uuid)
+
 
     INFO("Starting lockdown...");
 
