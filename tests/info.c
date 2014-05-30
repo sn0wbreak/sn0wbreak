@@ -107,7 +107,7 @@ int main(int argc, char * argv[])
             INFO("I will boot your device with opensn0w now, with deviceinfos from my cache, please place your device into DFU mode....\n");
             char s1[256] = "/os/bin/opensn0w_cli -p /os/bundles/";
             char *cat = strcat(s1, plistc);
-            printf("%s\n", cat);
+            system(cat);
             INFO("Done!\n");
             return 0;
         }
@@ -154,7 +154,7 @@ int main(int argc, char * argv[])
                 printf("Error opening file!\n");
                 exit(1);
               }
-              fprintf(f, "%s_%s_%s", product, version, build);
+              fprintf(f, "%s_%s_%s.plist", product, version, build);
               fclose(f);
               printf("Cached:\nProduct: %s\nVersion: %s\nBuild: %s\n", product, version, build);
         }
