@@ -74,6 +74,7 @@ void INFO(char *infostr)
 
 int main(int argc, char *argv[])
 {
+INFO("We're in main(), bro");
 if(strcmp(argv[2], "-q") != 0)
     q = true;
 
