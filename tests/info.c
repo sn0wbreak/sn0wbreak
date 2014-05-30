@@ -101,8 +101,9 @@ int main(int argc, char * argv[])
             file_get_contents(cache, &plistc, &length); // se file_get_contents.h
 
             INFO("I will boot your device with opensn0w now, with deviceinfos from my cache, please place your device into DFU mode....\n");
-            char *p1 = strcat("/os/bin/opensn0w_cli -p /os/bundles/", plistc); 
-            printf("%s", p1);
+            char s1[256] = "/os/bin/opensn0w_cli -p /os/bundles/";
+            char *cat = strcat(s1, plistc);
+            printf("%s\n", cat);
             INFO("Done!\n");
             return 0;
         }
