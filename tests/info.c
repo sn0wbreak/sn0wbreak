@@ -49,7 +49,7 @@ compatibility_t compatible_devices[] = {
   {NULL, NULL}
   
   //need to finsih this
-};
+}
 
 int verify_product(char *product, char *build)
 {
@@ -64,8 +64,9 @@ int verify_product(char *product, char *build)
 } // thanks to winocm for the 'verify_product' function.
 
 
-void INFO(char *infostr, bool qqq = true)
+void INFO(char *infostr, bool qqq)
 {
+  (bool*)qqq = false
   if(!qqq)
   {
     printf("[*] %s\n", infostr);
@@ -76,16 +77,15 @@ int main(int argc, char *argv[])
 {
 bool q = false;
 if(strcmp(argv[2], "-q") != 0)
-{
-(bool*) q = true;
-}
+    (bool*) q = true;
+
   if(strcmp(argv[1], "--boot") == 0)
   {
     printf("BOOT!!!");
   }
   else // Connects to device
   {
-    INFO("Connecting to device...",q);
+    INFO("Connecting to device...", q);
     device_t *device = device_create(NULL);
     if (device == NULL) // Checks if the device is plugged in or not
     {
