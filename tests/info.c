@@ -47,8 +47,6 @@ compatibility_t compatible_devices[] = {
   {"n90bap","11D201"},
   {"n92ap","11D201"},
   {NULL, NULL}
-  
-  //need to finsih this
 };
 
 int verify_product(char *product, char *build)
@@ -88,7 +86,18 @@ if(strcmp(argv[2], "-q") == 0)
 }
   if(strcmp(argv[1], "--boot") == 0)
   {
-    printf("BOOT!!!");
+char *cache = "home_dir/.opensn0w/device_cache";
+
+if(!file_exists(cache))
+{
+printf("Please cache your device first....\n");
+return -1;
+}
+char *plist = fread(cache);
+printf("I will boot your device with opensn0w now, with deviceinfos from my cache, please place your device into DFU mode....");
+system("/os/bin/opensn0w_cli -p /os/bundles/%s.plist",plist);
+printf("Done!\n");
+return 0;
   }
   else // Connects to device
   {
