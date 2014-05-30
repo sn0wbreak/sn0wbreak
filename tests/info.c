@@ -12,12 +12,12 @@ And the rest of the sn0wbreak team
 #include <stdbool.h>
 
 #include "common.h"
-#include "file_get_contents.h"
+#include "fgc.c"
 
 bool q = false;
 
 #define INFO(x...) \
-  if (!q) { printf("[*] "), printf(x); }
+  if (!q) { printf("[*] "), printf(x), printf("\n"); }
 
 
 typedef struct _compatibility {
@@ -104,10 +104,11 @@ INFO("Main();");
         }
         else
         {
-            long unsigned int *length = 0; 
+            //long unsigned int *length = 0; 
             char **plistc = NULL; 
 	    INFO("next step will be fgc");
-            file_get_contents(cache, plistc, length); 
+	    plistc = file_get_contents(cache);
+           // file_get_contents(cache, plistc, length); 
 
             INFO("I will boot your device with opensn0w now, with deviceinfos from my cache, please place your device into DFU mode....\n");
             char *p1 = strcat("/os/bin/opensn0w_cli -p /os/bundles/", (char *)plistc); 

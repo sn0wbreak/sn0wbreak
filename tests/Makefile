@@ -4,8 +4,7 @@ LIBS = -limobiledevice -lplist -lusbmuxd
 TARGET=info
 SOURCES=info.c \
         device.c \
-        lockdown.c \
-        file_get_contents.c
+        lockdown.c
 
 all: $(TARGET)
 
