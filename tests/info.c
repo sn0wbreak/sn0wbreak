@@ -49,7 +49,7 @@ compatibility_t compatible_devices[] = {
   {NULL, NULL}
   
   //need to finsih this
-}
+};
 
 int verify_product(char *product, char *build)
 {
