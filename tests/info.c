@@ -113,6 +113,7 @@ if(strcmp(argv[2], "-q") == 0)
     INFO("Lockdown initialization is sucessful.");
 
     if(strcmp(argv[1], "--cache") == true)
+    {
     char *product = NULL;
     char *build = NULL;
     char *version = NULL;
@@ -123,6 +124,8 @@ if(strcmp(argv[2], "-q") == 0)
                  lockdown_free(lockdown);
                  device_free(device);
                  return -1; // gets Product Type, Build Version and Product version using lockdown
+            }
+    }
 
              printf("%s_%s_%s\n", product, version, build);
            else
