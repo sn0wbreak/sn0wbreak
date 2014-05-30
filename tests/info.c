@@ -13,6 +13,7 @@ And the rest of the sn0wbreak team
 #include "lockdown.h"
 
 #include "common.h"
+#include "functions.c"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -88,9 +89,8 @@ if(strcmp(argv[2], "-q") == 0)
   {
 char *homedir = getenv("HOME");
 char *cache = strcat(homedir,"/.sn0wbreak/device_cache");
-//char *plist = fread(cache);
-printf("%s",cache);
-/*if(!file_exists(cache))
+char *plist = file_get_contents(cache);
+if(!file_exists(cache))
 {
 printf("Please cache your device first....\n");
 return -1;
@@ -98,10 +98,10 @@ return -1;
 else
 {
     printf("I will boot your device with opensn0w now, with deviceinfos from my cache, please place your device into DFU mode....");
- //   printf("/os/bin/opensn0w_cli -p /os/bundles/%s.plist\n",plist);
+    printf("/os/bin/opensn0w_cli -p /os/bundles/%s.plist\n",plist);
     printf("Done!\n");
 return 0;
-}*/
+}
 
   }
   else // Connects to device
