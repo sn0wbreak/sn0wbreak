@@ -77,7 +77,7 @@ int main(int argc, char *argv[])
 {
 bool q = false;
 if(strcmp(argv[2], "-q") != 0)
-    (bool*) q = true;
+    q = true;
 
   if(strcmp(argv[1], "--boot") == 0)
   {
@@ -92,9 +92,9 @@ if(strcmp(argv[2], "-q") != 0)
         ERROR("Cannot connect to device! Make sure it is plugged in.");
         return -1;
     }
-    INFO("[*] Successfully connected to the iDevice. UDID: %s\n", device->uuid,q);
+    printf("[*] Successfully connected to the iDevice. UDID: %s\n", device->uuid,q);
 
-    INFO("Starting lockdown...",q);
+    INFO("Starting lockdown...");
 
     lockdown_t *lockdown = lockdown_open(device);   // Startes the lockdown protocol
     if (lockdown == NULL)
