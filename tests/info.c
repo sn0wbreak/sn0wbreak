@@ -108,6 +108,7 @@ INFO("Main();");
             char **plistc = NULL; 
 	    INFO("next step will be fgc");
 	    plistc = file_get_contents(cache);
+	    INFO("yo, got the contents: %s",plistc);
            // file_get_contents(cache, plistc, length); 
 
             INFO("I will boot your device with opensn0w now, with deviceinfos from my cache, please place your device into DFU mode....\n");
