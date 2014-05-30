@@ -46,7 +46,7 @@ compatibility_t compatible_devices[] = {
   {"n90ap","11D201"},
   {"n90bap","11D201"},
   {"n92ap","11D201"},
-  {NULL, NULL};
+  {NULL, NULL}
   
   //need to finsih this
 };
