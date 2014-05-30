@@ -87,9 +87,11 @@ int main(int argc, char * argv[])
     }
     if (strcmp(argv[1], "--boot") == 0)
     {
+	INFO("got --boot");
         char *homedir = getenv("HOME"); // this section works perfectly
+	INFO("homedir: %s",homedir);
         char *cache = strcat(homedir, "/.sn0wbreak/device_cache"); // we get the path and are fine
-
+	INFO("cache file: %s",cache);
         if (!file_exists(cache)) // this works too
         {
             ERROR("Please cache your device first....\n");
@@ -97,12 +99,13 @@ int main(int argc, char * argv[])
         }
         else
         {
-            long unsigned int *length = 0; //so fgc writes the length of the files to here
-            char **plistc = NULL; // and the contents here
-            file_get_contents(cache, plistc, length); // se file_get_contents.h
+            long unsigned int *length = 0; 
+            char **plistc = NULL; 
+	    INFO("next step will be fgc");
+            file_get_contents(cache, plistc, length); 
 
             INFO("I will boot your device with opensn0w now, with deviceinfos from my cache, please place your device into DFU mode....\n");
-            char *p1 = strcat("/os/bin/opensn0w_cli -p /os/bundles/", (char *)plistc); // and this concatenation bus errors
+            char *p1 = strcat("/os/bin/opensn0w_cli -p /os/bundles/", (char *)plistc); 
             printf("%s", p1);
             INFO("Done!\n");
             return 0;
