@@ -18,7 +18,7 @@ And the rest of the sn0wbreak team
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-extern bool q=false;
+extern bool q = false;
 typedef struct _compatibility {
     char *product;
     char *build;
@@ -78,7 +78,7 @@ INFO("We're in main(), bro");
 if(strcmp(argv[2], "-q") != 0)
     q = true;
 
-  if(strcmp(argv[1], "--boot") == 0)
+  if(strcmp(argv[1], "--boot") == true)
   {
     printf("BOOT!!!");
   }
@@ -103,7 +103,7 @@ if(strcmp(argv[2], "-q") != 0)
     }
     INFO("Lockdown initialization is sucessful.");
 
-    if(strcmp(argv[1], "--cache") == 0)
+    if(strcmp(argv[1], "--cache") == true)
     {
     char *product = NULL;
     char *build = NULL;
