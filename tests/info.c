@@ -74,10 +74,10 @@ void INFO(char *infostr, bool qqq = true)
 
 int main(int argc, char *argv[])
 {
-bool q=false;
+bool q = false;
 if(strcmp(argv[2], "-q") != 0)
 {
-q=true;
+(bool*) q = true;
 }
   if(strcmp(argv[1], "--boot") == 0)
   {
