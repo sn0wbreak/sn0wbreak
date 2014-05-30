@@ -86,7 +86,7 @@ if(strcmp(argv[2], "-q") == 0)
 }
   if(strcmp(argv[1], "--boot") == 0)
   {
-char *cache = "home_dir/.opensn0w/device_cache";
+char *cache = "home_dir/.sn0wbreak/device_cache";
 char *plist = fread(cache);
 
 if(!file_exists(cache))
