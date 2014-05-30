@@ -73,6 +73,7 @@ int file_exists(const char filename[]) {
 
 int main(int argc, char * argv[])
 {
+INFO("Main();");
     if (argv[1] == NULL)
     {
         printf("Usage: \n%s --boot boots your device\n%s --cache caches your current device for booting\n%s SomeInfo query's lockdown about SomeInfo and echo's it\n", argv[0], argv[0], argv[0]);
