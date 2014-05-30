@@ -112,7 +112,7 @@ if(strcmp(argv[2], "-q") == 0)
     }
     INFO("Lockdown initialization is sucessful.");
 
-    if(strcmp(argv[1], "--cache") == true)
+    if(strcmp(argv[1], "--cache") == 0)
     {
     char *product = NULL;
     char *build = NULL;
