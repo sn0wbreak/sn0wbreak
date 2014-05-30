@@ -97,7 +97,7 @@ if(strcmp(argv[2], "-q") == 0)
   if(strcmp(argv[1], "--boot") == 0)
   {
 char *homedir = getenv("HOME");
-char *cache = strcat(homedir,"/.sn0wbreak/device_cache");
+char *cache = strncat(homedir,"/.sn0wbreak/device_cache");
 if(!file_exists(cache))
 {
 printf("Please cache your device first....\n");
@@ -109,7 +109,7 @@ int length = 0; //who the hell cares about it, but it seems like file_get_conten
 char *plistc = NULL;
 char *plist = file_get_contents(cache,&plistc,&length);
     INFO("I will boot your device with opensn0w now, with deviceinfos from my cache, please place your device into DFU mode....");
-char *p1 = strncat("/os/bin/opensn0w_cli -p /os/bundles/", plistc, ".plist");
+char *p1 = strncat("/os/bin/opensn0w_cli -p /os/bundles/", plistc);
 printf("%s",p1);
     INFO("Done!\n");
 return 0;
