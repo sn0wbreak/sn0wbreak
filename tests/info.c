@@ -125,9 +125,10 @@ if(strcmp(argv[2], "-q") == 0)
                  device_free(device);
                  return -1; // gets Product Type, Build Version and Product version using lockdown
             }
+printf("%s_%s_%s\n", product, version, build);
     }
 
-             printf("%s_%s_%s\n", product, version, build);
+             
            else
            {
              char *value = NULL;
