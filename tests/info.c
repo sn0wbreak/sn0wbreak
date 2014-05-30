@@ -17,6 +17,7 @@ And the rest of the sn0wbreak team
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 typedef struct _compatibility {
     char *product;
