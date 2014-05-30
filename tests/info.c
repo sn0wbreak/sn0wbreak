@@ -15,7 +15,6 @@ And the rest of the sn0wbreak team
 #include "file_get_contents.c"
 
 bool q = false;
-
 #define INFO(x...) \
   if (!q) { printf("[*] "), printf(x); }
 
@@ -62,6 +61,12 @@ int verify_product(char *product, char *build)
   return 1;
 } // thanks to winocm for the 'verify_product' function.
 
+const char *cachefile()
+{
+  char *homedir = getenv("HOME");
+  char *cache = strcat(homedir, "/.sn0wbreak/device_cache");
+  return cache;
+}
 
 int file_exists(const char filename[]) {
   struct stat stbuf;
@@ -87,8 +92,7 @@ int main(int argc, char * argv[])
     }
     if (strcmp(argv[1], "--boot") == 0)
     {
-        char *homedir = getenv("HOME"); // this section works perfectly
-        char *cache = strcat(homedir, "/.sn0wbreak/device_cache"); // we get the path and are fine
+      char *cache = cachefile();
         if (!file_exists(cache)) // this works too
         {
             ERROR("Please cache your device first....\n");
@@ -144,7 +148,15 @@ int main(int argc, char * argv[])
                 device_free(device);
                 return -1; // gets Product Type, Build Version and Product version using lockdown
             }
-            printf("%s_%s_%s\n", product, version, build);
+              FILE *f = fopen(cachefile(), "w");
+              if (f == NULL)
+              {
+                printf("Error opening file!\n");
+                exit(1);
+              }
+              fprintf(f, "%s_%s_%s", product, version, build);
+              fclose(f);
+              printf("Cached:\nProduct: %s\nVersion: %s\nBuild: %s\n", product, version, build);
         }
         else
         {
