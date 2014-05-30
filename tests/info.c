@@ -12,7 +12,7 @@ And the rest of the sn0wbreak team
 #include <stdbool.h>
 
 #include "common.h"
-#include "fgc.c"
+#include "file_get_contents.c"
 
 bool q = false;
 
@@ -73,30 +73,22 @@ int file_exists(const char filename[]) {
 
 int main(int argc, char * argv[])
 {
-INFO("Main();");
     if (argv[1] == NULL)
     {
         printf("Usage: \n%s --boot boots your device\n%s --cache caches your current device for booting\n%s SomeInfo query's lockdown about SomeInfo and echo's it\n", argv[0], argv[0], argv[0]);
         return -1;
     }
-    INFO("Going to check if argv[2] is defined...");
     if (argv[2] != NULL)
     {
-        INFO("It is");
         if (strcmp(argv[2], "-q") == 0)
         {
-	    INFO("It was -q");
             q = true;
         }
     }
-    INFO("Going to check if argv[1] is boot in the next step");
     if (strcmp(argv[1], "--boot") == 0)
     {
-	INFO("got --boot");
         char *homedir = getenv("HOME"); // this section works perfectly
-	INFO("homedir: %s",homedir);
         char *cache = strcat(homedir, "/.sn0wbreak/device_cache"); // we get the path and are fine
-	INFO("cache file: %s",cache);
         if (!file_exists(cache)) // this works too
         {
             ERROR("Please cache your device first....\n");
@@ -104,15 +96,12 @@ INFO("Main();");
         }
         else
         {
-            //long unsigned int *length = 0; 
-            char **plistc = NULL; 
-	    INFO("next step will be fgc");
-	    plistc = file_get_contents(cache);
-	    INFO("yo, got the contents: %s",plistc);
-           // file_get_contents(cache, plistc, length); 
+            long unsigned int length = 0; //so fgc writes the length of the files to here
+            char *plistc = NULL; // and the contents here
+            file_get_contents(cache, &plistc, &length); // se file_get_contents.h
 
             INFO("I will boot your device with opensn0w now, with deviceinfos from my cache, please place your device into DFU mode....\n");
-            char *p1 = strcat("/os/bin/opensn0w_cli -p /os/bundles/", (char *)plistc); 
+            char *p1 = strcat("/os/bin/opensn0w_cli -p /os/bundles/", plistc); 
             printf("%s", p1);
             INFO("Done!\n");
             return 0;
