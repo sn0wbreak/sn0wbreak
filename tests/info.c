@@ -63,7 +63,7 @@ int verify_product(char *product, char *build)
 } // thanks to winocm for the 'verify_product' function.
 
 
-void INFO(char *infostr, bool qqq = 0)
+void INFO(char *infostr, bool qqq = true)
 {
   if(!qqq)
   {
