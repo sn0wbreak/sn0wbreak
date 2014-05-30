@@ -109,8 +109,11 @@ int length = 0; //so fgc writes the length of the files to here
 char *plistc = NULL; // and the contents here
 file_get_contents(cache,&plistc,&length); // se file_get_contents.h
     INFO("I will boot your device with opensn0w now, with deviceinfos from my cache, please place your device into DFU mode....");
-char *p1 = strcat("/os/bin/opensn0w_cli -p /os/bundles/", plistc); // and this concatenation bus errors
-printf("%s",p1);
+char *a = "/os/bin/opensn0w_cli -p /os/bundles/";
+char *b = malloc(length + strlen(a) + 1);
+strcat(b,a);
+strcat(b,plistc);
+printf("%s",b);
     INFO("Done!\n");
 return 0;
 }
