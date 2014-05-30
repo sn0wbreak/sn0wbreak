@@ -1,4 +1,4 @@
-CC=cc
+CC=gcc
 CFLAGS= -g -Wall
 LIBS = -limobiledevice -lplist -lusbmuxd
 TARGET=info
