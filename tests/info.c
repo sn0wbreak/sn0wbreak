@@ -107,6 +107,7 @@ int main(int argc, char * argv[])
             INFO("I will boot your device with opensn0w now, with deviceinfos from my cache, please place your device into DFU mode....\n");
             char s1[256] = "/os/bin/opensn0w_cli -p /os/bundles/";
             char *cat = strcat(s1, plistc);
+            sleep(5);
             system(cat);
             INFO("Done!\n");
             return 0;
@@ -139,14 +140,21 @@ int main(int argc, char * argv[])
             char *product = NULL;
             char *build = NULL;
             char *version = NULL;
+            char *board = NULL;
             if (lockdown_get_string(lockdown, "ProductType", &product) != LOCKDOWN_E_SUCCESS ||
                 lockdown_get_string(lockdown, "BuildVersion", &build) != LOCKDOWN_E_SUCCESS  ||
+                lockdown_get_string(lockdown, "HardwareModel", &board) != LOCKDOWN_E_SUCCESS  ||
                 lockdown_get_string(lockdown, "ProductVersion", &version) != LOCKDOWN_E_SUCCESS)
             {
                 ERROR("Can't get info about your iDevice, please try again!\n");
                 lockdown_free(lockdown);
                 device_free(device);
                 return -1; // gets Product Type, Build Version and Product version using lockdown
+            }
+            if(verify_product(board,build) != 1)
+            {
+              ERROR("Invalid device / iOS version\n");
+              return -1;
             }
               FILE *f = fopen(cachefile(), "w");
               if (f == NULL)
@@ -156,7 +164,7 @@ int main(int argc, char * argv[])
               }
               fprintf(f, "%s_%s_%s.plist", product, version, build);
               fclose(f);
-              printf("Cached:\nProduct: %s\nVersion: %s\nBuild: %s\n", product, version, build);
+              printf("Cached:\nProduct: %s\nVersion: %s\nBuild: %s\nHardwareModel: %s\n", product, version, build,board);
         }
         else
         {
