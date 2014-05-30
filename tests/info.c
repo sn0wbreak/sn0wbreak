@@ -64,9 +64,9 @@ int verify_product(char *product, char *build)
 } // thanks to winocm for the 'verify_product' function.
 
 
-void INFO(char *infostr, bool qqq)
+void INFO(char *infostr)
 {
-  (bool*)qqq = false
+  bool qqq = false
   if(!qqq)
   {
     printf("[*] %s\n", infostr);
