@@ -90,7 +90,7 @@ char *homedir = getenv("HOME");
 char *cache = strcat(homedir,"/.sn0wbreak/device_cache");
 //char *plist = fread(cache);
 printf("%s",cache);
-if(!file_exists(cache))
+/*if(!file_exists(cache))
 {
 printf("Please cache your device first....\n");
 return -1;
@@ -101,7 +101,7 @@ else
  //   printf("/os/bin/opensn0w_cli -p /os/bundles/%s.plist\n",plist);
     printf("Done!\n");
 return 0;
-}
+}*/
 
   }
   else // Connects to device
