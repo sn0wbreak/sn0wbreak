@@ -3,10 +3,15 @@
 #include <string.h>
 int main(int argc, char *argv[])
 {
-char *abc = file_get_contents(argv[1]);
-printf("%s",abc);
+int *abc = file_exists(argv[1]);
+printf("%d",abc);
 }
-char file_get_contents(char filename)
+int file_exist (char *filename)
+{
+  struct stat   buffer;   
+  return (stat (filename, &buffer) == 0);
+}
+/*char file_get_contents(char filename)
 {
 char * buffer = 0;
 long length;
@@ -36,4 +41,4 @@ else
 {
 printf("Idk but it seems like something went wrong....\n");
 }
-}
+}*/
