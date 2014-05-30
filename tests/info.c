@@ -75,15 +75,20 @@ void INFO(char *infostr)
 int main(int argc, char *argv[])
 {
 INFO("We're in main(), bro");
-if(strcmp(argv[2], "-q") != 0)
+if(strcmp(argv[2], "-q") == 0)
+{
     q = true;
-
-  if(strcmp(argv[1], "--boot") == true)
+printf("I'm quieted\n");
+}
+INFO("Passed quiet bs");
+  if(strcmp(argv[1], "--boot") == 0)
   {
     printf("BOOT!!!");
+INFO("you said --boot,bro");
   }
   else // Connects to device
   {
+INFO("Not booting, bro");
     INFO("Connecting to device...");
     device_t *device = device_create(NULL);
     if (device == NULL) // Checks if the device is plugged in or not
