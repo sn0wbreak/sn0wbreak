@@ -109,7 +109,8 @@ int length = 0; //who the hell cares about it, but it seems like file_get_conten
 char *plistc = NULL;
 char *plist = file_get_contents(cache,&plistc,&length);
     INFO("I will boot your device with opensn0w now, with deviceinfos from my cache, please place your device into DFU mode....");
-printf("/os/bin/opensn0w_cli -p /os/bundles/%s.plist",plistc);
+//char *whatevar = strcat("echo ","ab");
+system("ls");
     INFO("Done!\n");
 return 0;
 }
