@@ -18,7 +18,7 @@ And the rest of the sn0wbreak team
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-
+extern bool q=false;
 typedef struct _compatibility {
     char *product;
     char *build;
@@ -66,8 +66,7 @@ int verify_product(char *product, char *build)
 
 void INFO(char *infostr)
 {
-  bool qqq = false
-  if(!qqq)
+  if(!q)
   {
     printf("[*] %s\n", infostr);
   }
@@ -75,7 +74,6 @@ void INFO(char *infostr)
 
 int main(int argc, char *argv[])
 {
-bool q = false;
 if(strcmp(argv[2], "-q") != 0)
     q = true;
 
@@ -85,14 +83,14 @@ if(strcmp(argv[2], "-q") != 0)
   }
   else // Connects to device
   {
-    INFO("Connecting to device...", q);
+    INFO("Connecting to device...");
     device_t *device = device_create(NULL);
     if (device == NULL) // Checks if the device is plugged in or not
     {
         ERROR("Cannot connect to device! Make sure it is plugged in.");
         return -1;
     }
-    printf("[*] Successfully connected to the iDevice. UDID: %s\n", device->uuid,q);
+    printf("[*] Successfully connected to the iDevice. UDID: %s\n", device->uuid);
 
     INFO("Starting lockdown...");
 
@@ -102,7 +100,7 @@ if(strcmp(argv[2], "-q") != 0)
         ERROR("Could not start lockdown!");
         return -1;
     }
-    INFO("Lockdown initialization is sucessful.",q);
+    INFO("Lockdown initialization is sucessful.");
 
     if(strcmp(argv[1], "--cache") == 0)
     {
