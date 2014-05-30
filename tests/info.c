@@ -81,12 +81,12 @@ return -1;
 }
 if(argv[2] != NULL)
 {
-if(strcmp(argv[2], "-q") == 0)
+if(strcmp(argv[2], "-q") == true)
 {
     q = true;
 }
 }
-  if(strcmp(argv[1], "--boot") == 0)
+  if(strcmp(argv[1], "--boot") == true)
   {
     printf("BOOT!!!");
   }
@@ -112,7 +112,7 @@ if(strcmp(argv[2], "-q") == 0)
     }
     INFO("Lockdown initialization is sucessful.");
 
-    if(strcmp(argv[1], "--cache") == 0)
+    if(strcmp(argv[1], "--cache") == true)
     {
     char *product = NULL;
     char *build = NULL;
