@@ -78,13 +78,17 @@ int main(int argc, char * argv[])
         printf("Usage: \n%s --boot boots your device\n%s --cache caches your current device for booting\n%s SomeInfo query's lockdown about SomeInfo and echo's it\n", argv[0], argv[0], argv[0]);
         return -1;
     }
+    INFO("Going to check if argv[2] is defined...");
     if (argv[2] != NULL)
     {
+        INFO("It is");
         if (strcmp(argv[2], "-q") == 0)
         {
+	    INFO("It was -q");
             q = true;
         }
     }
+    INFO("Going to check if argv[1] is boot in the next step");
     if (strcmp(argv[1], "--boot") == 0)
     {
 	INFO("got --boot");
