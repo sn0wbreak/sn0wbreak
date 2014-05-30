@@ -61,7 +61,7 @@ int verify_product(char *product, char *build)
   return 1;
 } // thanks to winocm for the 'verify_product' function.
 
-const char *cachefile()
+char *cachefile()
 {
   char *homedir = getenv("HOME");
   char *cache = strcat(homedir, "/.sn0wbreak/device_cache");
@@ -108,7 +108,7 @@ int main(int argc, char * argv[])
             char s1[256] = "/os/bin/opensn0w_cli -p /os/bundles/";
             char *cat = strcat(s1, plistc);
             sleep(5);
-            system(cat);
+            printf("%s\n", cat);
             INFO("Done!\n");
             return 0;
         }
@@ -143,7 +143,7 @@ int main(int argc, char * argv[])
             char *board = NULL;
             if (lockdown_get_string(lockdown, "ProductType", &product) != LOCKDOWN_E_SUCCESS ||
                 lockdown_get_string(lockdown, "BuildVersion", &build) != LOCKDOWN_E_SUCCESS  ||
-                lockdown_get_string(lockdown, "HardwareModel", &board) != LOCKDOWN_E_SUCCESS  ||
+                lockdown_get_string(lockdown, "HardwareModel", &board) != LOCKDOWN_E_SUCCESS ||
                 lockdown_get_string(lockdown, "ProductVersion", &version) != LOCKDOWN_E_SUCCESS)
             {
                 ERROR("Can't get info about your iDevice, please try again!\n");
@@ -164,7 +164,13 @@ int main(int argc, char * argv[])
               }
               fprintf(f, "%s_%s_%s.plist", product, version, build);
               fclose(f);
-              printf("Cached:\nProduct: %s\nVersion: %s\nBuild: %s\nHardwareModel: %s\n", product, version, build,board);
+
+              int i; // gcc warns about c99 mode
+              for (i = 0; i < strlen(board); ++i)
+              {
+                board[i] = tolower(board[i]);
+              }
+              printf("Cached:\nProduct: %s\nVersion: %s\nBuild: %s\nHardwareModel: %s\n", product, version, build, board);
         }
         else
         {
