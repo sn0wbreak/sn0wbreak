@@ -97,7 +97,7 @@ if(strcmp(argv[2], "-q") == 0)
   if(strcmp(argv[1], "--boot") == 0)
   {
 char *homedir = getenv("HOME");
-char *cache = strncat(homedir,"/.sn0wbreak/device_cache");
+char *cache = strcat(homedir,"/.sn0wbreak/device_cache");
 if(!file_exists(cache))
 {
 printf("Please cache your device first....\n");
