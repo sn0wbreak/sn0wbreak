@@ -1,6 +1,6 @@
 CC=gcc
-CFLAGS= -g -Wall
-LIBS = -limobiledevice -lplist -lusbmuxd
+CFLAGS= -g -Wall -L/os/lib
+LIBS = -limobiledevice -lplist -lusbmuxd -lsn0wcore
 TARGET=info
 SOURCES=info.c \
         device.c \

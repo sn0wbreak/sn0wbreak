@@ -16,7 +16,7 @@ And the rest of the sn0wbreak team
 #include "common.h"
 #include "file_get_contents.c"
 
-#include "sn0wcore_public.h"
+#include "include/sn0wcore_public.h"
 
 bool q = false;
 #define INFO(x...) \
