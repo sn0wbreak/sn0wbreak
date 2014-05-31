@@ -108,7 +108,7 @@ int main(int argc, char * argv[])
             char s1[256] = "/os/bin/opensn0w_cli -p /os/bundles/";
             char *cat = strcat(s1, plistc);
             sleep(5);
-            printf("%s\n", cat);
+            system(cat); // sorryPythEch, but it shall be executed, not echo'ed, it's the opensn0w boot command
             INFO("Done!\n");
             return 0;
         }
@@ -151,7 +151,12 @@ int main(int argc, char * argv[])
                 device_free(device);
                 return -1; // gets Product Type, Build Version and Product version using lockdown
             }
-            if(verify_product(board,build) != 1)
+            int i; // gcc warns about c99 mode
+              for (i = 0; i < strlen(board); ++i)
+              {
+                board[i] = tolower(board[i]);
+              }
+            if(verify_product(board,build) != 1) // lol the point of lowercasing it, is that the compatible array is in lowercase
             {
               ERROR("Invalid device / iOS version\n");
               return -1;
@@ -164,12 +169,6 @@ int main(int argc, char * argv[])
               }
               fprintf(f, "%s_%s_%s.plist", product, version, build);
               fclose(f);
-
-              int i; // gcc warns about c99 mode
-              for (i = 0; i < strlen(board); ++i)
-              {
-                board[i] = tolower(board[i]);
-              }
               printf("Cached:\nProduct: %s\nVersion: %s\nBuild: %s\nHardwareModel: %s\n", product, version, build, board);
         }
         else
