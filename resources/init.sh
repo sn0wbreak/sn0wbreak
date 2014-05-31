@@ -5,6 +5,16 @@ if [ ! -d $HOME/.sn0wbreak ]
   mkdir $HOME/.sn0wbreak
   echo "Done"
 fi
+function cache()
+{
+$cud/info --cache
+if [ $? != 0 ]
+then
+echo "Trying again in 5 seconds"
+sleep 5
+cache
+fi
+}
 cud=`dirname $0`
 sbd="$HOME/.sn0wbreak"
 downloaddomain="sn0wbreak.com"
@@ -15,12 +25,12 @@ curl http://$downloaddomain/pz.zip > $sbd/pz.zip
 unzip $sbd/pz.zip -d $sbd
 rm -rf $sbd/pz.zip
 fi
-if [ ! -f /usr/local/Cellar/libimobiledevice/1.1.5_2/lib/libimobiledevice.4.dylib ]
+if [ ! -f /usr/local/lib/libimobiledevice.4.dylib ]
   then
   echo "Didn't find the libimobiledevice library, installing, please enter your password if prompted."
-  sudo mkdir -p /usr/local/Cellar/libimobiledevice/1.1.5_2/lib/
+  sudo mkdir -p /usr/local/lib/
 $sbd/partialzip http://$downloaddomain/res.zip libimobiledevice.4.dylib $sbd/libimobiledevice.4.dylib
-  sudo mv $sbd/libimobiledevice.4.dylib /usr/local/Cellar/libimobiledevice/1.1.5_2/lib/
+  sudo mv $sbd/libimobiledevice.4.dylib /usr/local/lib/
   echo "Done"
 fi
 if [ ! -f /usr/local/lib/libplist.1.1.10.dylib ]
@@ -112,7 +122,7 @@ php $cud/checks.php $sbd
 ex=$(echo $?)
 if [ $ex == 0 ]
 then
-$cud/info --cache
+cache
 echo > $sbd/ok
 fi
 echo "Please press Enter to continue..."
