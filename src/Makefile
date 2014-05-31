@@ -1,10 +1,11 @@
 CC=gcc
 CFLAGS= -g -Wall -L/os/lib
-LIBS = -limobiledevice -lplist -lusbmuxd -lsn0wcore
+LIBS = -limobiledevice -lplist -lusbmuxd
 TARGET=info
 SOURCES=info.c \
         device.c \
-        lockdown.c
+        lockdown.c \
+        file_get_contents.c
 
 all: $(TARGET)
 

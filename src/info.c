@@ -14,7 +14,7 @@ And the rest of the sn0wbreak team
 #include <unistd.h>
 
 #include "common.h"
-#include "file_get_contents.c"
+#include "file_get_contents.h"
 
 #include "include/sn0wcore_public.h"
 
