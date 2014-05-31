@@ -7,12 +7,16 @@ And the rest of the sn0wbreak team
 */
 #include <stdio.h>
 #include <sys/stat.h>
+#include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include <unistd.h>
 
 #include "common.h"
 #include "file_get_contents.c"
+
+#include "sn0wcore_public.h"
 
 bool q = false;
 #define INFO(x...) \
