@@ -66,5 +66,7 @@ THANKS TO:
 - winocm for opensn0w
 - jk9357 for help with scripting
 - Christian Troger for website hosting
+- sjeezpwn_ or @spawncpy for the c part
+- @PythEch for getting the c part working
 
 Copyright © Daniel Troger and Spydar007 2014
