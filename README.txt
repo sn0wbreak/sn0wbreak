@@ -1,4 +1,4 @@
-sn0wbreak v1.0.1 - sn0wbreak.com
+sn0wbreak v1.0.0 - sn0wbreak.com
 
 DESCRIPTION:
 
@@ -55,7 +55,7 @@ CONTACT:
 
 CREDITS:
 
-- sn0wbreak is a production of Daniel Troger and Spydar007
+- sn0wbreak is a production of The sn0wbreak Team
 
 THANKS TO:
 
@@ -66,7 +66,5 @@ THANKS TO:
 - winocm for opensn0w
 - jk9357 for help with scripting
 - Christian Troger for website hosting
-- sjeezpwn_ or @spawncpy for the c part
-- @PythEch for getting the c part working
 
-Copyright © Daniel Troger and Spydar007 2014
+Copyright © The sn0wbreak Team 2014
