@@ -156,7 +156,8 @@ int main(int argc, char * argv[])
               {
                 board[i] = tolower(board[i]);
               }
-            if(verify_product(board,build) != 1) // lol the point of lowercasing it, is that the compatible array is in lowercase
+	    printf("%s",board);
+            if(verify_product(board,build)) // lol the point of lowercasing it, is that the compatible array is in lowercase
             {
               ERROR("Invalid device / iOS version\n");
               return -1;

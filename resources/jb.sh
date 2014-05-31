@@ -55,4 +55,4 @@ php $cud/sshkiller.php
 echo "Done, please put your device into DFU mode again and then press Enter to continue..."
 echo > $sbd/jbd
 read NULL
-$cud/boot.sh
+$cud/info --boot

@@ -112,7 +112,7 @@ php $cud/checks.php $sbd
 ex=$(echo $?)
 if [ $ex == 0 ]
 then
-$cud/info.sh identify
+$cud/info --cache
 echo > $sbd/ok
 fi
 echo "Please press Enter to continue..."
