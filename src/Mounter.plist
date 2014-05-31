@@ -6,7 +6,7 @@
 	<string>Mounter</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/var/mobile/sn0wbreak/mounter.sh</string>
+		<string>/bin/mounter.sh</string>
 	</array>
 </dict>
 </plist>
