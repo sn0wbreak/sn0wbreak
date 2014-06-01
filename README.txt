@@ -66,5 +66,7 @@ THANKS TO:
 - winocm for opensn0w
 - jk9357 for help with scripting
 - Christian Troger for website hosting
+- @spawncpy (sjeezpwn_) for the c part
+- @PythEch for getting the c part working
 
 Copyright © The sn0wbreak Team 2014
