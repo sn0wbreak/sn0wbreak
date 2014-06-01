@@ -1,4 +1,4 @@
-sn0wbreak v1.1 - sn0wbreak.com
+sn0wbreak v1.1.0 - sn0wbreak.com
 
 DESCRIPTION:
 
@@ -28,7 +28,7 @@ SUPPORTED FIRMWARES:
 
 CHANGES:
 
-- 1.1:
+- 1.1.0:
   - Changed most of it to be in the C language so now it works a lot better
   
 - 1.0.0:
