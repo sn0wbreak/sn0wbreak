@@ -1,4 +1,4 @@
-sn0wbreak v1.0.0 - sn0wbreak.com
+sn0wbreak v1.1 - sn0wbreak.com
 
 DESCRIPTION:
 
@@ -28,6 +28,9 @@ SUPPORTED FIRMWARES:
 
 CHANGES:
 
+- 1.1:
+  - Changed most of it to be in the C language so now it works a lot better
+  
 - 1.0.0:
   - Initial release
 
@@ -65,8 +68,7 @@ THANKS TO:
 - planetbeing for partialzip
 - winocm for opensn0w
 - jk9357 for help with scripting
+- PythEch for the help with C
 - Christian Troger for website hosting
-- @spawncpy (sjeezpwn_) for the c part
-- @PythEch for getting the c part working
 
 Copyright © The sn0wbreak Team 2014
