@@ -1,6 +1,6 @@
 <?php
 $fdir = $_SERVER['HOME'] . "/.sn0wbreak";
-$utils = array("unzip","tar","scp","java","{$fdir}/ideviceinfo","{$fdir}/partialzip","/os/bin/opensn0w_cli","open","defaults","ssh","bash","php","curl");
+$utils = array("unzip","tar","scp","java","{$fdir}/partialzip","/os/bin/opensn0w_cli","open","defaults","ssh","bash","php","curl");
 foreach($utils as $util)
 {
   echo "Checking for {$util}...";

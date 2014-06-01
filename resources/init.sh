@@ -59,13 +59,13 @@ if [ ! -f /os/bin/opensn0w_cli ]
 sudo rm -rf $sbd/os.zip
   echo "Done"
 fi
-if [ ! -f $sbd/ideviceinfo ]
-  then
-  echo "Downloading ideviceinfo..."
-    $sbd/partialzip http://$downloaddomain/res.zip ideviceinfo $sbd/ideviceinfo
-chmod 755 $sbd/ideviceinfo
-  echo "Done"
-fi
+#if [ ! -f $sbd/ideviceinfo ]
+#  then
+#  echo "Downloading ideviceinfo..."
+#    $sbd/partialzip http://$downloaddomain/res.zip ideviceinfo $sbd/ideviceinfo
+#chmod 755 $sbd/ideviceinfo
+#  echo "Done"
+#fi
 if [ ! -f $sbd/sshpass ]
   then
   echo "Downloading sshpass..."
