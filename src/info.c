@@ -1,3 +1,12 @@
+/*
+file: info.c
+description: a utility written in c,
+to cache device informations and call opensn0w,
+or to get raw values from lockdownd from a connected device.
+by: the sn0wbreak team
+depends: libimobiledevice
+is not: an example how to write secure code
+*/
 #include <stdio.h>
 #include <sys/stat.h>
 #include <ctype.h>
@@ -9,8 +18,6 @@
 #include "common.h"
 #include "file_get_contents.h"
 
-#include "include/sn0wcore_public.h"
-
 bool q = false;
 #define INFO(x...) \
   if (!q) { printf("[*] "), printf(x); }
@@ -21,7 +28,7 @@ typedef struct _compatibility {
   char *build;
 } compatibility_t;
 
-compatibility_t compatible_devices[] = {
+compatibility_t compatible_devices[] = { // why not just iphone3,* ? nah todo, but it works.... and if it works don't fix it....
   {"n90ap", "11A465"},
   {"n90bap","11A465"},
   {"n92ap", "11A465"},
@@ -87,7 +94,7 @@ int main(int argc, char * argv[])
             q = true;
         }
     }
-    if (strcmp(argv[1], "--boot") == 0)
+    if (strcmp(argv[1], "--boot") == 0) //don't connect to a device,,,, just read the cache and system()
     {
       char *cache = cachefile();
         if (!file_exists(cache)) // this works too
@@ -99,14 +106,14 @@ int main(int argc, char * argv[])
         {
             long unsigned int length = 0; //so fgc writes the length of the files to here
             char *plistc = NULL; // and the contents here
-            file_get_contents(cache, &plistc, &length); // se file_get_contents.h
+            file_get_contents(cache, &plistc, &length); // see file_get_contents.h
 
-            INFO("I will boot your device with opensn0w now, with deviceinfos from my cache, please place your device into DFU mode....\n");
+            INFO("I will boot your device with opensn0w now, with deviceinfos from my cache, please place your device into DFU mode....\n"); // would a better echo be cooler?
             char s1[256] = "/os/bin/opensn0w_cli -p /os/bundles/";
             char *cat = strcat(s1, plistc);
             sleep(5);
-            system(cat); // sorryPythEch, but it shall be executed, not echo'ed, it's the opensn0w boot command
-            INFO("Done!\n");
+            system(cat); //TODO: use opensn0w's api, instead of system()
+            INFO("Done!\n"); //unnesseccary
             return 0;
         }
     }
@@ -148,7 +155,7 @@ int main(int argc, char * argv[])
                 device_free(device);
                 return -1; // gets Product Type, Build Version and Product version using lockdown
             }
-            int i; // gcc warns about c99 mode
+            int i; // gcc warns about c99 mode <- gcc nolonger does
               for (i = 0; i < strlen(board); ++i)
               {
                 board[i] = tolower(board[i]);
