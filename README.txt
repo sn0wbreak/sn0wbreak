@@ -1,4 +1,4 @@
-sn0wbreak v1.1.0 - sn0wbreak.com
+sn0wbreak v1.2.0 - sn0wbreak.com
 
 DESCRIPTION:
 
@@ -28,6 +28,9 @@ SUPPORTED FIRMWARES:
 
 CHANGES:
 
+- 1.2.0:
+  - All in C. Also removed the use of opensn0w so as to use our own boot tool.
+  
 - 1.1.0:
   - Changed most of it to be in the C language so now it works a lot better
   
@@ -66,7 +69,6 @@ THANKS TO:
 - iH8sn0w for the dirhelper
 - msftguy for ssh_rd
 - planetbeing for partialzip
-- winocm for opensn0w
 - jk9357 for help with scripting
 - PythEch for the help with C
 - Christian Troger for website hosting
