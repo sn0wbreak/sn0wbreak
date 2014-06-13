@@ -28,9 +28,6 @@ SUPPORTED FIRMWARES:
 
 CHANGES:
 
-- 1.2.0:
-  - All in C. Also removed the use of opensn0w so as to use our own boot tool.
-  
 - 1.1.0:
   - Changed most of it to be in the C language so now it works a lot better
   
