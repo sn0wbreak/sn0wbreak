@@ -1,2 +1,10 @@
-this patch is the only change i've done to opensn0w:
+This patch is the only real change i've done to opensn0w, to the github version when compiling it, but the prebuilt version if from an older commit as far as i know, not sure :
+
 http://devbug.me/attachment/4174303333.zip
+
+I manually added the files:
+bundles/iPhone3,1_7.1.1_11D201.plist
+bundles/iPhone3,2_7.1.1_11D201.plist
+budnles/iPhone3,3_7.1.1_11D201.plist
+
+to the bundles folder of the compiled version.
