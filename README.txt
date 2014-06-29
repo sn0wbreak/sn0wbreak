@@ -71,8 +71,8 @@ THANKS TO:
 - planetbeing for partialzip
 - winocm for opensn0w
 - jk9357 for the help
-- sjeezpwn for the help
-- PythEch for the help
+- sjeezpwn/spawncpy for the help
+- Pythech for the help
 - Christian Troger for website hosting
 
 Copyright © sn0wbreak 2014
