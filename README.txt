@@ -29,7 +29,7 @@ SUPPORTED FIRMWARES:
 CHANGES:
 
 - 1.2.0:
-  - Changed the way sn0wbreak executes so it works better
+  - Changed the way sn0wbreak executes so it works better and is an even quicker and more efficient way to jailbreak
   
 - 1.1.0:
   - Changed most of it to be in the C language so now it works a lot better
