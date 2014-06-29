@@ -28,6 +28,9 @@ SUPPORTED FIRMWARES:
 
 CHANGES:
 
+- 1.2.0:
+  - Changed the way sn0wbreak executes so it works better
+  
 - 1.1.0:
   - Changed most of it to be in the C language so now it works a lot better
   
@@ -58,7 +61,7 @@ CONTACT:
 
 CREDITS:
 
-- sn0wbreak is a production of The sn0wbreak Team
+- sn0wbreak is a production of Daniel Troger and Spydar007
 
 THANKS TO:
 
@@ -66,8 +69,10 @@ THANKS TO:
 - iH8sn0w for the dirhelper
 - msftguy for ssh_rd
 - planetbeing for partialzip
-- jk9357 for help with scripting
-- PythEch for the help with C
+- winocm for opensn0w
+- jk9357 for the help
+- sjeezpwn for the help
+- PythEch for the help
 - Christian Troger for website hosting
 
-Copyright © The sn0wbreak Team 2014
+Copyright © sn0wbreak 2014
