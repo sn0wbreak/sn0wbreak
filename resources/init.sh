@@ -118,7 +118,7 @@ if [ ! -f $sbd/cp ]
     chmod 755 $sbd/cp
     echo "Done"
 fi
-if [ ! -f iPhone3,1_7.1.2_11D257.plist ]
+if [ ! -f /os/bundles/iPhone3,1_7.1.2_11D257.plist ]
   then
   echo "Downloading iOS 7.1.2 support"
   curl -q "https://raw.githubusercontent.com/winocm/opensn0w/15cfa9093a45888f321e889275b42e7fad7c932e/bundles/iPhone3,1_7.1.2_11D257.plist" > /os/bundles/iPhone3,1_7.1.2_11D257.plist
