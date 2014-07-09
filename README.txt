@@ -25,15 +25,16 @@ SUPPORTED FIRMWARES:
 - iOS 7.1 beta 2 (11D5115d)
 - iOS 7.1 (11D169)
 - iOS 7.1.1 (11D201)
+- iOS 7.1.2 (11D257) (iPhone3,1 (GSM) only at the moment)
 
 CHANGES:
 
 - 1.2.0:
-  - Changed the way sn0wbreak executes so it works better and is an even quicker and more efficient way to jailbreak
-  
+  - iOS 7.1.2 support for iPhone3,1
+
 - 1.1.0:
   - Changed most of it to be in the C language so now it works a lot better
-  
+
 - 1.0.0:
   - Initial release
 
@@ -50,7 +51,7 @@ INSTRUCTIONS:
 
 FAQ:
 
-- If you have any questions regarding the jailbreak process or jailbreaking in general 
+- If you have any questions regarding the jailbreak process or jailbreaking in general
 please go to the Jailbreak QA dedicated website: http://www.jailbreakqa.com
 or try /r/jailbreak on Reddit: http://reddit.com/r/jailbreak
 
