@@ -47,7 +47,7 @@ typedef DWORD *LPDWORD;
 typedef char *LPSTR;
 typedef char *LPTSTR;
 typedef const char *LPCTSTR;
-typedef char *LPCWSTR;
+char *LPCWSTR;
 #else
 #include <windows.h>
 #endif
