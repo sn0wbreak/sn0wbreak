@@ -21,7 +21,7 @@ downloaddomain="sn0wbreak.com"
 if [ ! -f $sbd/partialzip ]
 then
 echo "Downloading partialzip..."
-curl http://$downloaddomain/pz.zip > $sbd/pz.zip
+curl -q curhttp://$downloaddomain/pz.zip > $sbd/pz.zip
 unzip $sbd/pz.zip -d $sbd
 rm -rf $sbd/pz.zip
 fi
@@ -117,6 +117,12 @@ if [ ! -f $sbd/cp ]
     $sbd/partialzip http://$downloaddomain/res.zip cp $sbd/cp
     chmod 755 $sbd/cp
     echo "Done"
+fi
+if [ ! -f iPhone3,1_7.1.2_11D257.plist ]
+  then
+  echo "Downloading iOS 7.1.2 support"
+  curl -q "https://raw.githubusercontent.com/winocm/opensn0w/15cfa9093a45888f321e889275b42e7fad7c932e/bundles/iPhone3,1_7.1.2_11D257.plist" > /os/bundles/iPhone3,1_7.1.2_11D257.plist
+  echo "Done"
 fi
 php $cud/checks.php $sbd
 ex=$(echo $?)
