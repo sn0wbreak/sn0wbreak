@@ -50,6 +50,7 @@ compatibility_t compatible_devices[] = { // why not just iphone3,* ? nah todo, b
   {"n90ap","11D201"},
   {"n90bap","11D201"},
   {"n92ap","11D201"},
+  {"n90ap","11D257"},
   {NULL, NULL}
 };
 
