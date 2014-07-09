@@ -21,7 +21,7 @@ downloaddomain="sn0wbreak.com"
 if [ ! -f $sbd/partialzip ]
 then
 echo "Downloading partialzip..."
-curl -# curhttp://$downloaddomain/pz.zip > $sbd/pz.zip
+curl -# http://$downloaddomain/pz.zip > $sbd/pz.zip
 unzip $sbd/pz.zip -d $sbd
 rm -rf $sbd/pz.zip
 fi
