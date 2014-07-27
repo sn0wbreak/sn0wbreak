@@ -51,7 +51,7 @@ echo -n "Setting nvram variables and rebooting..."
 executecmd nvram auto-boot=true
 executecmd reboot_bak
 echo "Done"
-php $cud/sshkiller.php
+kill $(ps ax | grep "java -jar $sbd/ssh_rd.jar" |grep -v grep |awk '{ print $1 }')
 echo "Done, please put your device into DFU mode again and then press Enter to continue..."
 echo > $sbd/jbd
 read NULL
