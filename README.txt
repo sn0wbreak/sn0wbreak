@@ -1,4 +1,4 @@
-sn0wbreak v1.2.0 - sn0wbreak.com
+﻿sn0wbreak v1.2.1 - sn0wbreak.spydar007.com
 
 DESCRIPTION:
 
@@ -28,6 +28,9 @@ SUPPORTED FIRMWARES:
 - iOS 7.1.2 (11D257) (iPhone3,1 (GSM) only at the moment)
 
 CHANGES:
+
+- 1.2.1:
+  - Changing domain
 
 - 1.2.0:
   - iOS 7.1.2 support for iPhone3,1
@@ -76,4 +79,4 @@ THANKS TO:
 - Pythech for the help
 - Christian Troger for website hosting
 
-Copyright © sn0wbreak 2014
+Copyright © sn0wbreak 2014-2015

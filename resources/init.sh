@@ -17,7 +17,7 @@ fi
 }
 cud=`dirname $0`
 sbd="$HOME/.sn0wbreak"
-downloaddomain="sn0wbreak.com"
+downloaddomain="sn0wbreak.spydar007.com"
 if [ ! -f $sbd/partialzip ]
 then
 echo "Downloading partialzip..."
